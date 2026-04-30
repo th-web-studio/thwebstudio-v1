@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TH WEB STUDIO | Web Design & Data</title>
+    <title>TH WEB STUDIO | Solid Design & Development</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
 </head>
@@ -12,6 +12,7 @@
     <nav class="top-bar">
         <div class="nav-container">
             <a href="index.html" class="brand">TH WEB <span class="accent">STUDIO</span></a>
+            
             <button class="menu-btn" id="menu-btn">
                 <div class="btn-line"></div>
                 <div class="btn-line short"></div>
@@ -23,28 +24,24 @@
         <div class="drawer-header">
             <button class="close-btn" id="close-btn">&times;</button>
         </div>
+        
         <div class="drawer-content">
             <ul class="nav-list">
                 <li><a href="index.html" class="main-link">HOME</a></li>
                 <li><a href="portfolio.html" class="main-link">PORTFOLIO</a></li>
+                <li><a href="services.html" class="main-link">SERVICES</a></li>
+                
                 <li class="has-sub">
-                    <button class="dropdown-btn">SERVICES <span class="plus">+</span></button>
+                    <button class="dropdown-btn">ABOUT <span class="plus">+</span></button>
                     <ul class="sub-menu">
-                        <li><a href="services.html#branding">Identity</a></li>
-                        <li><a href="services.html#engineering">Engineering</a></li>
-                        <li><a href="services.html#data">Data & Insights</a></li>
+                        <li><a href="about.html#about-us">About Us</a></li>
+                        <li><a href="about.html#standards">Our Standards</a></li>
+                        <li><a href="about.html#faq">FAQ</a></li>
                     </ul>
                 </li>
-                <li class="has-sub">
-                    <button class="dropdown-btn">HOW WE WORK <span class="plus">+</span></button>
-                    <ul class="sub-menu">
-                        <li><a href="framework.html#mission">Our Goal</a></li>
-                        <li><a href="framework.html#faq">Ownership</a></li>
-                        <li><a href="framework.html#method">Speed</a></li>
-                    </ul>
-                </li>
-                <li><a href="about.html" class="main-link">ABOUT</a></li>
-                <li><a href="index.html#contact" class="nav-cta">GET STARTED</a></li>
+
+                <li><a href="#contact" class="main-link">CONTACT</a></li>
+                <li><a href="#contact" class="nav-cta">GET STARTED</a></li>
             </ul>
         </div>
     </div>
@@ -56,7 +53,7 @@
             <div class="container">
                 <span class="eyebrow">ESTABLISHED 2026</span>
                 <h1>Solid web design for <br>businesses that <span class="blue-text">want results.</span></h1>
-                <p>We build high-performance websites and data tools for companies that value quality work over quick templates.</p>
+                <p>We build high-performance websites and custom business tools for companies that value quality work over quick templates.</p>
                 <div class="hero-actions">
                     <a href="portfolio.html" class="btn-primary">View Work</a>
                 </div>
@@ -98,11 +95,13 @@
         const overlay = document.getElementById('overlay');
         const dropdowns = document.querySelectorAll('.dropdown-btn');
 
+        // Open Menu
         menuBtn.addEventListener('click', () => {
             drawer.classList.add('open');
             overlay.classList.add('active');
         });
 
+        // Close Menu
         const closeMenu = () => {
             drawer.classList.remove('open');
             overlay.classList.remove('active');
@@ -111,6 +110,7 @@
         closeBtn.addEventListener('click', closeMenu);
         overlay.addEventListener('click', closeMenu);
 
+        // Accordion Toggle for "About"
         dropdowns.forEach(btn => {
             btn.addEventListener('click', () => {
                 const subMenu = btn.nextElementSibling;
