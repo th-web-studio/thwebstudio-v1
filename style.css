@@ -31,7 +31,7 @@ html, body {
 .brand { text-decoration: none; font-weight: 900; color: #fff; text-transform: uppercase; letter-spacing: 1px; }
 .accent { color: var(--blue); }
 
-/* 3. DRAWER & OVERLAY */
+/* 3. DRAWER & OVERLAY (Linked to script.js) */
 .side-drawer {
     position: fixed; top: 0; right: -100%; width: 400px; height: 100%;
     background: #0a0c10; z-index: 2000; transition: 0.5s ease;
@@ -41,7 +41,7 @@ html, body {
 .drawer-header { display: flex; justify-content: flex-end; width: 100%; margin-bottom: 20px; }
 .close-btn { background: none; border: none; color: #fff; font-size: 3.5rem; cursor: pointer; line-height: 0.5; padding: 10px; }
 
-/* 4. MENU BRANDING & ALIGNMENT */
+/* 4. MENU BRANDING & LINKS */
 .drawer-brand { margin-bottom: 40px; font-weight: 900; font-size: 1.5rem; letter-spacing: 1px; border-bottom: 1px solid var(--border); padding-bottom: 20px; }
 .drawer-tagline { font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 2px; margin-top: 5px; font-weight: 400; }
 .nav-list { list-style: none; padding: 0; margin: 0; }
@@ -60,12 +60,12 @@ html, body {
 }
 .nav-cta-button:hover { background-color: #1d4ed8; transform: translateY(-2px); }
 
-/* 6. ULTRA-PREMIUM LAYOUT ENGINE */
+/* 6. LAYOUT ENGINE (12-Column Grid) */
 .container { max-width: 1300px; margin: 0 auto; padding: 0 6%; width: 100%; }
 .section-padding { padding: 120px 0; }
 .premium-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 20px; align-items: start; }
 
-/* Hero */
+/* Hero Section */
 .hero-section { min-height: 90vh; display: flex; align-items: center; }
 .hero-content { grid-column: 1 / span 11; }
 .hero-section h1 { font-size: clamp(2.5rem, 7vw, 5.5rem); line-height: 1.05; font-weight: 900; letter-spacing: -0.04em; margin: 24px 0; }
@@ -74,10 +74,10 @@ html, body {
 /* Tech Scroller */
 .tech-marquee { background: #0a0c10; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 25px 0; overflow: hidden; white-space: nowrap; }
 .marquee-content { display: inline-block; animation: marquee 40s linear infinite; }
-.marquee-content span { font-size: 0.75rem; font-weight: 900; letter-spacing: 3px; color: #4b5563; padding: 0 50px; }
+.marquee-content span { font-size: 0.8rem; font-weight: 800; letter-spacing: 2px; color: #64748b; padding: 0 50px; text-transform: uppercase; }
 @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
-/* Studio & Titles */
+/* Sections & Typography */
 .studio-section { border-top: 1px solid var(--border); }
 .studio-label { grid-column: 1 / span 3; }
 .section-title { font-size: 0.8rem; color: var(--blue); text-transform: uppercase; letter-spacing: 3px; font-weight: 900; }
@@ -85,7 +85,7 @@ html, body {
 .studio-body h3 { font-size: clamp(1.8rem, 4vw, 2.8rem); line-height: 1.2; font-weight: 900; margin-bottom: 30px; letter-spacing: -0.02em; }
 .studio-body p { font-size: 1.1rem; color: var(--text-muted); line-height: 1.8; max-width: 700px; }
 
-/* Featured Work */
+/* Featured Work Card */
 .work-image-window { width: 100%; height: 500px; background: #0a0c10; border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; transition: 0.5s ease; cursor: pointer; }
 .work-image-window:hover { border-color: var(--blue); background: #0e1117; }
 .placeholder-img { font-size: 0.7rem; color: #374151; letter-spacing: 2px; text-transform: uppercase; font-weight: 900; }
@@ -102,16 +102,16 @@ html, body {
 .cta-card h2 { font-size: clamp(2rem, 5vw, 3.5rem); margin-bottom: 20px; font-weight: 900; letter-spacing: -0.02em; }
 .cta-card p { color: var(--text-muted); margin-bottom: 40px; font-size: 1.2rem; }
 
-/* Global Helpers */
-.blue-text { color: var(--blue); }
-.eyebrow { font-size: 0.7rem; color: var(--blue); letter-spacing: 3px; font-weight: 900; text-transform: uppercase; }
+/* Menu Controls */
 .overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); opacity: 0; pointer-events: none; transition: 0.4s; z-index: 1500; }
 .overlay.active { opacity: 1; pointer-events: auto; }
 .menu-btn { width: 45px; height: 45px; background: none; border: 1px solid var(--border); cursor: pointer; display: flex; flex-direction: column; align-items: flex-end; justify-content: center; padding-right: 10px; }
 .btn-line { width: 22px; height: 2px; background: #fff; margin: 3px 0; }
 .btn-line.short { width: 14px; }
+.blue-text { color: var(--blue); }
+.eyebrow { font-size: 0.7rem; color: var(--blue); letter-spacing: 3px; font-weight: 900; text-transform: uppercase; }
 
-/* Responsive Mobile Fixes */
+/* Responsive Adjustments */
 @media (max-width: 992px) {
     .nav-container { padding: 0 5%; }
     .hero-content, .studio-label, .studio-body { grid-column: 1 / span 12; }
