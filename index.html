@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TH WEB STUDIO</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <nav class="top-bar">
+        <a href="index.html" class="brand">TH WEB <span class="accent">STUDIO</span></a>
+        
+        <button class="menu-btn" id="menu-btn">
+            <div class="btn-line"></div>
+            <div class="btn-line short"></div>
+        </button>
+    </nav>
+
+    <div class="side-drawer" id="side-drawer">
+        <div class="drawer-header">
+            <button class="close-btn" id="close-btn">&times;</button>
+        </div>
+        
+        <div class="drawer-content">
+            <ul class="nav-list">
+                <li><a href="index.html" class="main-link">HOME</a></li>
+                <li><a href="portfolio.html" class="main-link">PORTFOLIO</a></li>
+                
+                <li class="has-sub">
+                    <button class="dropdown-btn">SERVICES <span class="plus">+</span></button>
+                    <ul class="sub-menu">
+                        <li><a href="services.html#branding">Identity</a></li>
+                        <li><a href="services.html#engineering">Engineering</a></li>
+                        <li><a href="services.html#data">Data & Insights</a></li>
+                    </ul>
+                </li>
+
+                <li class="has-sub">
+                    <button class="dropdown-btn">THE FRAMEWORK <span class="plus">+</span></button>
+                    <ul class="sub-menu">
+                        <li><a href="framework.html#mission">Our Mission</a></li>
+                        <li><a href="framework.html#faq">FAQ</a></li>
+                        <li><a href="framework.html#method">Our Method</a></li>
+                    </ul>
+                </li>
+
+                <li><a href="about.html" class="main-link">ABOUT US</a></li>
+                <li><a href="index.html#contact" class="nav-cta">GET STARTED</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="overlay" id="overlay"></div>
+
+    <script>
+        const menuBtn = document.getElementById('menu-btn');
+        const closeBtn = document.getElementById('close-btn');
+        const drawer = document.getElementById('side-drawer');
+        const overlay = document.getElementById('overlay');
+        const dropdowns = document.querySelectorAll('.dropdown-btn');
+
+        // Open Menu
+        menuBtn.addEventListener('click', () => {
+            drawer.classList.add('open');
+            overlay.classList.add('active');
+        });
+
+        // Close Menu (Via X button or Overlay)
+        const closeMenu = () => {
+            drawer.classList.remove('open');
+            overlay.classList.remove('active');
+        };
+
+        closeBtn.addEventListener('click', closeMenu);
+        overlay.addEventListener('click', closeMenu);
+
+        // Accordion Logic
+        dropdowns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const subMenu = btn.nextElementSibling;
+                subMenu.classList.toggle('show');
+                btn.querySelector('.plus').textContent = subMenu.classList.contains('show') ? '−' : '+';
+            });
+        });
+    </script>
+</body>
+</html>
