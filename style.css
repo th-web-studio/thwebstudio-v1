@@ -10,7 +10,7 @@ html, body {
     --bg: #05070a;
     --blue: #2563eb;
     --border: rgba(255, 255, 255, 0.1);
-    --text-muted: #94a3b8;
+    --text-muted: #64748b;
 }
 
 * { box-sizing: border-box; font-family: 'Inter', sans-serif; }
@@ -31,7 +31,7 @@ html, body {
 .brand { text-decoration: none; font-weight: 900; color: #fff; text-transform: uppercase; letter-spacing: 1px; }
 .accent { color: var(--blue); }
 
-/* 3. DRAWER & OVERLAY (Linked to script.js) */
+/* 3. DRAWER & OVERLAY (Menu Logic) */
 .side-drawer {
     position: fixed; top: 0; right: -100%; width: 400px; height: 100%;
     background: #0a0c10; z-index: 2000; transition: 0.5s ease;
@@ -41,7 +41,7 @@ html, body {
 .drawer-header { display: flex; justify-content: flex-end; width: 100%; margin-bottom: 20px; }
 .close-btn { background: none; border: none; color: #fff; font-size: 3.5rem; cursor: pointer; line-height: 0.5; padding: 10px; }
 
-/* 4. MENU BRANDING & LINKS */
+/* 4. MENU LINKS */
 .drawer-brand { margin-bottom: 40px; font-weight: 900; font-size: 1.5rem; letter-spacing: 1px; border-bottom: 1px solid var(--border); padding-bottom: 20px; }
 .drawer-tagline { font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 2px; margin-top: 5px; font-weight: 400; }
 .nav-list { list-style: none; padding: 0; margin: 0; }
@@ -60,34 +60,53 @@ html, body {
 }
 .nav-cta-button:hover { background-color: #1d4ed8; transform: translateY(-2px); }
 
-/* 6. LAYOUT ENGINE (12-Column Grid) */
+/* 6. LAYOUT ENGINE */
 .container { max-width: 1300px; margin: 0 auto; padding: 0 6%; width: 100%; }
 .section-padding { padding: 120px 0; }
 .premium-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 20px; align-items: start; }
 
-/* Hero Section */
-.hero-section { min-height: 90vh; display: flex; align-items: center; }
+/* Hero */
+.hero-section { min-height: 85vh; display: flex; align-items: center; }
 .hero-content { grid-column: 1 / span 11; }
 .hero-section h1 { font-size: clamp(2.5rem, 7vw, 5.5rem); line-height: 1.05; font-weight: 900; letter-spacing: -0.04em; margin: 24px 0; }
-.hero-subtext { font-size: 1.2rem; color: var(--text-muted); max-width: 600px; line-height: 1.7; margin-bottom: 48px; }
+.hero-subtext { font-size: 1.2rem; color: #94a3b8; max-width: 600px; line-height: 1.7; margin-bottom: 48px; }
 
-/* Tech Scroller */
-.tech-marquee { background: #0a0c10; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 25px 0; overflow: hidden; white-space: nowrap; }
-.marquee-content { display: inline-block; animation: marquee 40s linear infinite; }
-.marquee-content span { font-size: 0.8rem; font-weight: 800; letter-spacing: 2px; color: #64748b; padding: 0 50px; text-transform: uppercase; }
+/* REFINED TECH SCROLLER (Geometric & Glass) */
+.tech-marquee { 
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-top: 1px solid var(--border); 
+    border-bottom: 1px solid var(--border); 
+    padding: 22px 0; 
+    overflow: hidden; 
+    white-space: nowrap;
+    position: relative;
+    mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+}
+.marquee-content { display: flex; align-items: center; animation: marquee 55s linear infinite; }
+.marquee-content span { font-size: 0.7rem; font-weight: 900; letter-spacing: 2px; color: #94a3b8; padding: 0 35px; text-transform: uppercase; }
+
+/* The Geometric Dot */
+.dot {
+    width: 6px; height: 6px; background-color: var(--blue);
+    display: inline-block; border-radius: 1px; opacity: 0.8;
+}
+
 @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
-/* Sections & Typography */
-.studio-section { border-top: 1px solid var(--border); }
+/* Sections */
+.studio-section { border-top: 1px solid var(--border); margin-top: -1px; }
 .studio-label { grid-column: 1 / span 3; }
 .section-title { font-size: 0.8rem; color: var(--blue); text-transform: uppercase; letter-spacing: 3px; font-weight: 900; }
 .studio-body { grid-column: 5 / span 8; }
 .studio-body h3 { font-size: clamp(1.8rem, 4vw, 2.8rem); line-height: 1.2; font-weight: 900; margin-bottom: 30px; letter-spacing: -0.02em; }
-.studio-body p { font-size: 1.1rem; color: var(--text-muted); line-height: 1.8; max-width: 700px; }
+.studio-body p { font-size: 1.1rem; color: #94a3b8; line-height: 1.8; max-width: 700px; }
 
 /* Featured Work Card */
 .work-image-window { width: 100%; height: 500px; background: #0a0c10; border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; transition: 0.5s ease; cursor: pointer; }
-.work-image-window:hover { border-color: var(--blue); background: #0e1117; }
+.work-image-window:hover { border-color: var(--blue); }
 .placeholder-img { font-size: 0.7rem; color: #374151; letter-spacing: 2px; text-transform: uppercase; font-weight: 900; }
 .work-details h4 { font-size: 1.5rem; margin: 25px 0 10px; font-weight: 900; }
 
@@ -99,8 +118,8 @@ html, body {
 
 /* Final CTA */
 .cta-card { background: #0a0c10; border: 1px solid var(--border); padding: 100px 40px; text-align: center; border-radius: 4px; }
-.cta-card h2 { font-size: clamp(2rem, 5vw, 3.5rem); margin-bottom: 20px; font-weight: 900; letter-spacing: -0.02em; }
-.cta-card p { color: var(--text-muted); margin-bottom: 40px; font-size: 1.2rem; }
+.cta-card h2 { font-size: clamp(2rem, 5vw, 3.5rem); margin-bottom: 20px; font-weight: 900; }
+.cta-card p { color: #94a3b8; margin-bottom: 40px; font-size: 1.2rem; }
 
 /* Menu Controls */
 .overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); opacity: 0; pointer-events: none; transition: 0.4s; z-index: 1500; }
@@ -117,6 +136,6 @@ html, body {
     .hero-content, .studio-label, .studio-body { grid-column: 1 / span 12; }
     .studio-body { margin-top: 40px; }
     .side-drawer { width: 100%; }
-    .work-image-window { height: 350px; }
     .section-padding { padding: 80px 0; }
+    .tech-marquee { padding: 18px 0; }
 }
