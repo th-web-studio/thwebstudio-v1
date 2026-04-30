@@ -31,7 +31,7 @@ html, body {
 .brand { text-decoration: none; font-weight: 900; color: #fff; text-transform: uppercase; letter-spacing: 1px; }
 .accent { color: var(--blue); }
 
-/* 3. DRAWER & OVERLAY (Menu Logic) */
+/* 3. DRAWER & OVERLAY */
 .side-drawer {
     position: fixed; top: 0; right: -100%; width: 400px; height: 100%;
     background: #0a0c10; z-index: 2000; transition: 0.5s ease;
@@ -60,18 +60,18 @@ html, body {
 }
 .nav-cta-button:hover { background-color: #1d4ed8; transform: translateY(-2px); }
 
-/* 6. LAYOUT ENGINE */
+/* 6. LAYOUT ENGINE (12-Column Grid) */
 .container { max-width: 1300px; margin: 0 auto; padding: 0 6%; width: 100%; }
 .section-padding { padding: 120px 0; }
 .premium-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 20px; align-items: start; }
 
-/* Hero */
+/* Hero Section */
 .hero-section { min-height: 85vh; display: flex; align-items: center; }
 .hero-content { grid-column: 1 / span 11; }
 .hero-section h1 { font-size: clamp(2.5rem, 7vw, 5.5rem); line-height: 1.05; font-weight: 900; letter-spacing: -0.04em; margin: 24px 0; }
 .hero-subtext { font-size: 1.2rem; color: #94a3b8; max-width: 600px; line-height: 1.7; margin-bottom: 48px; }
 
-/* REFINED TECH SCROLLER (Geometric & Glass) */
+/* REFINED TECH SCROLLER (Snappy & Transparent) */
 .tech-marquee { 
     background: rgba(255, 255, 255, 0.02);
     backdrop-filter: blur(10px);
@@ -85,10 +85,10 @@ html, body {
     mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
     -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
 }
-.marquee-content { display: flex; align-items: center; animation: marquee 55s linear infinite; }
-.marquee-content span { font-size: 0.7rem; font-weight: 900; letter-spacing: 2px; color: #94a3b8; padding: 0 35px; text-transform: uppercase; }
+.marquee-content { display: flex; align-items: center; animation: marquee 20s linear infinite; }
+.marquee-content span { font-size: 0.7rem; font-weight: 900; letter-spacing: 2px; color: #94a3b8; padding: 0 40px; text-transform: uppercase; }
 
-/* The Geometric Dot */
+/* The Blue Geometric Dot Divider */
 .dot {
     width: 6px; height: 6px; background-color: var(--blue);
     display: inline-block; border-radius: 1px; opacity: 0.8;
@@ -130,12 +130,9 @@ html, body {
 .blue-text { color: var(--blue); }
 .eyebrow { font-size: 0.7rem; color: var(--blue); letter-spacing: 3px; font-weight: 900; text-transform: uppercase; }
 
-/* Responsive Adjustments */
 @media (max-width: 992px) {
-    .nav-container { padding: 0 5%; }
     .hero-content, .studio-label, .studio-body { grid-column: 1 / span 12; }
     .studio-body { margin-top: 40px; }
     .side-drawer { width: 100%; }
     .section-padding { padding: 80px 0; }
-    .tech-marquee { padding: 18px 0; }
 }
