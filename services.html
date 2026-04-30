@@ -1,15 +1,67 @@
-    <main class="section-padding container">
-        <h2 class="section-title">What We Build</h2>
-        <div class="service-row">
-            <h1>Site Structure</h1>
-            <p>We frame your digital presence. No templates—just logical navigation and high-end layouts designed to build authority.</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services | TH WEB STUDIO</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <nav class="top-bar">
+        <div class="nav-container">
+            <a href="index.html" class="brand">TH WEB <span class="accent">STUDIO</span></a>
+            <button class="menu-btn" id="menu-btn">
+                <div class="btn-line"></div>
+                <div class="btn-line short"></div>
+            </button>
         </div>
-        <div class="service-row">
-            <h1>Web Development</h1>
-            <p>Clean, efficient code. We build for speed and reliability, ensuring your site looks perfect on any device.</p>
+    </nav>
+
+    <div class="side-drawer" id="side-drawer">
+        <div class="drawer-header">
+            <button class="close-btn" id="close-btn">&times;</button>
         </div>
-        <div class="service-row">
-            <h1>Custom Features</h1>
-            <p>Advanced functionality. From booking forms to custom business calculators, we build the tools standard builders can't.</p>
+        <div class="drawer-content">
+            <ul class="nav-list">
+                <li><a href="index.html" class="main-link">HOME</a></li>
+                <li><a href="portfolio.html" class="main-link">PORTFOLIO</a></li>
+                <li><a href="services.html" class="main-link">SERVICES</a></li>
+                <li class="has-sub">
+                    <button class="dropdown-btn">ABOUT <span class="plus">+</span></button>
+                    <ul class="sub-menu">
+                        <li><a href="about-us.html">About Us</a></li>
+                        <li><a href="standards.html">Our Standards</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                    </ul>
+                </li>
+                <li><a href="contact.html" class="main-link">CONTACT</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="overlay" id="overlay"></div>
+
+    <main class="container section-padding">
+        <span class="eyebrow">OUR CORE CAPABILITIES</span>
+        <h1>Engineered to <span class="blue-text">Perform.</span></h1>
+        
+        <div class="card">
+            <h3 style="color: var(--blue);">Web Architecture</h3>
+            <p>We build logical, scalable site structures that prioritize the user experience and convert visitors into clients.</p>
+        </div>
+
+        <div class="card">
+            <h3 style="color: var(--blue);">Custom Development</h3>
+            <p>Clean, high-performance code tailored to your business needs—from drainage line installation calculators to custom booking logic.</p>
+        </div>
+
+        <div class="card">
+            <h3 style="color: var(--blue);">Local SEO Strategy</h3>
+            <p>Grounded SEO foundations designed to help rural businesses dominate their local market and establish authority.</p>
         </div>
     </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
