@@ -3,31 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TH WEB STUDIO</title>
+    <title>TH WEB STUDIO | Web Design & Data</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
 </head>
 <body>
 
     <nav class="top-bar">
-        <a href="index.html" class="brand">TH WEB <span class="accent">STUDIO</span></a>
-        
-        <button class="menu-btn" id="menu-btn">
-            <div class="btn-line"></div>
-            <div class="btn-line short"></div>
-        </button>
+        <div class="nav-container">
+            <a href="index.html" class="brand">TH WEB <span class="accent">STUDIO</span></a>
+            <button class="menu-btn" id="menu-btn">
+                <div class="btn-line"></div>
+                <div class="btn-line short"></div>
+            </button>
+        </div>
     </nav>
 
     <div class="side-drawer" id="side-drawer">
         <div class="drawer-header">
             <button class="close-btn" id="close-btn">&times;</button>
         </div>
-        
         <div class="drawer-content">
             <ul class="nav-list">
                 <li><a href="index.html" class="main-link">HOME</a></li>
                 <li><a href="portfolio.html" class="main-link">PORTFOLIO</a></li>
-                
                 <li class="has-sub">
                     <button class="dropdown-btn">SERVICES <span class="plus">+</span></button>
                     <ul class="sub-menu">
@@ -36,23 +35,61 @@
                         <li><a href="services.html#data">Data & Insights</a></li>
                     </ul>
                 </li>
-
                 <li class="has-sub">
-                    <button class="dropdown-btn">THE FRAMEWORK <span class="plus">+</span></button>
+                    <button class="dropdown-btn">HOW WE WORK <span class="plus">+</span></button>
                     <ul class="sub-menu">
-                        <li><a href="framework.html#mission">Our Mission</a></li>
-                        <li><a href="framework.html#faq">FAQ</a></li>
-                        <li><a href="framework.html#method">Our Method</a></li>
+                        <li><a href="framework.html#mission">Our Goal</a></li>
+                        <li><a href="framework.html#faq">Ownership</a></li>
+                        <li><a href="framework.html#method">Speed</a></li>
                     </ul>
                 </li>
-
-                <li><a href="about.html" class="main-link">ABOUT US</a></li>
+                <li><a href="about.html" class="main-link">ABOUT</a></li>
                 <li><a href="index.html#contact" class="nav-cta">GET STARTED</a></li>
             </ul>
         </div>
     </div>
 
     <div class="overlay" id="overlay"></div>
+
+    <main>
+        <section id="hero" class="hero-section">
+            <div class="container">
+                <span class="eyebrow">ESTABLISHED 2026</span>
+                <h1>Solid web design for <br>businesses that <span class="blue-text">want results.</span></h1>
+                <p>We build high-performance websites and data tools for companies that value quality work over quick templates.</p>
+                <div class="hero-actions">
+                    <a href="portfolio.html" class="btn-primary">View Work</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-padding">
+            <div class="container">
+                <div class="hook-grid">
+                    <h2 class="section-title">THE STUDIO</h2>
+                    <h3>We don't just "make websites." We build business tools.</h3>
+                    <p>TH Web Studio was started to give businesses a better digital foundation. With a background in coding and data analytics, we build tools that actually help your business run better, not just look better.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section-padding blue-bg">
+            <div class="container">
+                <h2>Ready to get to work?</h2>
+                <p>Accepting new projects for 2026.</p>
+                <div class="contact-details">
+                    <p>PH: (000) 000-0000</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer-inner">
+            <span>© 2026 TH WEB STUDIO</span>
+            <span>PROUDLY BASED IN THE US</span>
+        </div>
+    </footer>
 
     <script>
         const menuBtn = document.getElementById('menu-btn');
@@ -61,13 +98,11 @@
         const overlay = document.getElementById('overlay');
         const dropdowns = document.querySelectorAll('.dropdown-btn');
 
-        // Open Menu
         menuBtn.addEventListener('click', () => {
             drawer.classList.add('open');
             overlay.classList.add('active');
         });
 
-        // Close Menu (Via X button or Overlay)
         const closeMenu = () => {
             drawer.classList.remove('open');
             overlay.classList.remove('active');
@@ -76,7 +111,6 @@
         closeBtn.addEventListener('click', closeMenu);
         overlay.addEventListener('click', closeMenu);
 
-        // Accordion Logic
         dropdowns.forEach(btn => {
             btn.addEventListener('click', () => {
                 const subMenu = btn.nextElementSibling;
