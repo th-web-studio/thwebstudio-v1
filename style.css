@@ -1,71 +1,78 @@
+/* --- CORE BRAND SYSTEM --- */
 :root {
     --bg-black: #05070a;
+    --bg-grey: #0f1217;
     --studio-blue: #2563eb;
+    --text-white: #ffffff;
     --text-dim: #94a3b8;
     --border: rgba(255, 255, 255, 0.1);
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
-body { background: var(--bg-black); color: #fff; }
+body { background: var(--bg-black); color: var(--text-white); line-height: 1.6; overflow-x: hidden; }
 
-/* Top Bar */
+.container { max-width: 1300px; margin: 0 auto; padding: 0 6%; }
+.section-padding { padding: 100px 0; }
+.grey-bg { background-color: var(--bg-grey); }
+.blue-bg { background: var(--studio-blue); text-align: center; color: #fff; }
+
+/* --- TOP NAVIGATION BAR --- */
 .top-bar {
-    position: fixed; top: 0; width: 100%; height: 80px;
-    display: flex; justify-content: space-between; align-items: center;
-    padding: 0 5%; z-index: 1000; background: rgba(5, 7, 10, 0.95);
+    position: fixed; top: 0; width: 100%; height: 85px;
+    display: flex; align-items: center; z-index: 1000;
+    background: rgba(5, 7, 10, 0.95); backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--border);
 }
 
-.brand { text-decoration: none; font-weight: 900; color: #fff; letter-spacing: 1px; }
+.nav-container { display: flex; justify-content: space-between; align-items: center; width: 100%; padding: 0 6%; }
+
+.brand { text-decoration: none; font-weight: 900; color: #fff; letter-spacing: 1px; font-size: 1.1rem; }
 .accent { color: var(--studio-blue); }
 
-/* Hamburger Button */
+/* --- ARCHITECTURAL HAMBURGER --- */
 .menu-btn {
     width: 45px; height: 45px; background: transparent; border: 1px solid var(--border);
     display: flex; flex-direction: column; justify-content: center; align-items: flex-end;
-    padding-right: 10px; cursor: pointer;
+    padding-right: 10px; cursor: pointer; transition: 0.3s;
 }
 .btn-line { width: 22px; height: 2px; background: #fff; margin: 3px 0; }
 .btn-line.short { width: 14px; }
+.menu-btn:hover { border-color: var(--studio-blue); }
 
-/* Side Drawer - Partial Width */
+/* --- RIGHT SIDE DRAWER (Partial Width) --- */
 .side-drawer {
     position: fixed; top: 0; right: -100%; 
-    width: 400px; /* Does not take up full screen */
+    width: 400px; /* Takes up only a portion of the screen */
     height: 100%;
     background: #0a0c10; z-index: 2000; 
-    transition: 0.4s cubic-bezier(0.7, 0, 0.3, 1);
+    transition: 0.5s cubic-bezier(0.7, 0, 0.3, 1);
     border-left: 1px solid var(--border); 
     padding: 40px;
     display: flex;
     flex-direction: column;
 }
-
 .side-drawer.open { right: 0; }
 
 /* Close Button (X) */
 .drawer-header { display: flex; justify-content: flex-end; margin-bottom: 40px; }
-.close-btn {
-    background: none; border: none; color: #fff; font-size: 2.5rem;
-    cursor: pointer; line-height: 1;
-}
+.close-btn { background: none; border: none; color: #fff; font-size: 2.5rem; cursor: pointer; line-height: 1; }
 
-/* Overlay Background */
+/* Click-to-Close Overlay */
 .overlay {
     position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(0,0,0,0.6); backdrop-filter: blur(4px);
+    background: rgba(0,0,0,0.7); backdrop-filter: blur(4px);
     opacity: 0; pointer-events: none; transition: 0.4s; z-index: 1500;
 }
 .overlay.active { opacity: 1; pointer-events: auto; }
 
-/* Nav Links */
+/* --- NAV LINKS & ACCORDION --- */
 .nav-list { list-style: none; }
 .nav-list li { margin-bottom: 25px; }
 
 .main-link, .dropdown-btn {
     text-decoration: none; color: #fff; font-size: 1.1rem; font-weight: 900;
     letter-spacing: 1px; display: flex; justify-content: space-between;
-    width: 100%; background: none; border: none; cursor: pointer;
+    width: 100%; background: none; border: none; cursor: pointer; text-align: left;
 }
 
 .sub-menu {
@@ -73,7 +80,9 @@ body { background: var(--bg-black); color: #fff; }
     display: none; border-left: 1px solid var(--studio-blue);
 }
 .sub-menu.show { display: block; }
-.sub-menu a { text-decoration: none; color: var(--text-dim); font-size: 0.9rem; font-weight: 600; display: block; margin-bottom: 10px; }
+.sub-menu li { margin-bottom: 12px; }
+.sub-menu a { text-decoration: none; color: var(--text-dim); font-size: 0.9rem; font-weight: 600; display: block; }
+.sub-menu a:hover { color: #fff; }
 
 .nav-cta {
     display: inline-block; margin-top: 20px; color: var(--studio-blue);
@@ -81,7 +90,28 @@ body { background: var(--bg-black); color: #fff; }
     padding: 12px 25px; font-size: 0.8rem; text-align: center;
 }
 
-/* Mobile: On very small screens, make it full width */
-@media (max-width: 480px) {
-    .side-drawer { width: 100%; }
+/* --- HERO & CONTENT --- */
+.hero-section { padding: 180px 0 100px; }
+h1 { font-size: clamp(2.5rem, 8vw, 5rem); font-weight: 900; line-height: 1.1; margin-bottom: 25px; }
+.blue-text { color: var(--studio-blue); }
+
+.hero-actions { margin-top: 30px; }
+.btn-primary {
+    display: inline-block; background: var(--studio-blue); color: #fff;
+    text-decoration: none; padding: 15px 35px; font-weight: 800; font-size: 0.9rem;
+}
+
+.hook-grid { max-width: 800px; }
+.hook-grid h3 { font-size: 2.2rem; margin-bottom: 20px; font-weight: 900; }
+.section-title { font-size: 0.7rem; color: var(--studio-blue); letter-spacing: 3px; font-weight: 900; margin-bottom: 30px; text-transform: uppercase; }
+
+/* --- FOOTER --- */
+footer { padding: 50px 0; border-top: 1px solid var(--border); font-size: 0.7rem; color: var(--text-dim); }
+.footer-inner { display: flex; justify-content: space-between; }
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+    .side-drawer { width: 85%; } /* Takes up more room on phones */
+    h1 { font-size: 3rem; }
+    .footer-inner { flex-direction: column; gap: 15px; text-align: center; }
 }
