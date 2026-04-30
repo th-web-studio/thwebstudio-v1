@@ -1,3 +1,8 @@
+/**
+ * TH WEB STUDIO - Master Navigation & Logic
+ * This script injects the global navigation and handles UI interactions.
+ */
+
 // 1. THE CONTENT: Your Master Navigation HTML
 const navHTML = `
     <nav class="top-bar">
@@ -28,28 +33,33 @@ const navHTML = `
                     </ul>
                 </li>
                 <li><a href="contact.html" class="main-link">CONTACT</a></li>
-                <li><a href="contact.html" class="nav-cta">GET STARTED</a></li>
+                <li><a href="contact.html" class="nav-cta-button">GET STARTED</a></li>
             </ul>
         </div>
     </div>
     <div class="overlay" id="overlay"></div>
 `;
 
-// 2. THE INJECTION: Place the HTML into the page
-const navPlaceholder = document.getElementById('nav-placeholder');
-if (navPlaceholder) {
-    navPlaceholder.innerHTML = navHTML;
-    // After the HTML is on the page, we run your logic
-    initNavigation();
+// 2. THE INJECTION: Place the HTML into the placeholder
+function injectNavigation() {
+    const navPlaceholder = document.getElementById('nav-placeholder');
+    if (navPlaceholder) {
+        navPlaceholder.innerHTML = navHTML;
+        // Logic must run AFTER the HTML is added to the DOM
+        initNavigationLogic();
+    }
 }
 
-// 3. THE LOGIC: Your original code, slightly optimized for the new system
-function initNavigation() {
+// 3. THE LOGIC: Handling Drawer and Dropdowns
+function initNavigationLogic() {
     const menuBtn = document.getElementById('menu-btn');
     const closeBtn = document.getElementById('close-btn');
     const drawer = document.getElementById('side-drawer');
     const overlay = document.getElementById('overlay');
     const dropdowns = document.querySelectorAll('.dropdown-btn');
+
+    // Safety check to ensure elements exist
+    if (!menuBtn || !drawer || !overlay) return;
 
     // Open Menu
     menuBtn.onclick = () => { 
@@ -57,7 +67,7 @@ function initNavigation() {
         overlay.classList.add('active'); 
     };
 
-    // Close Menu
+    // Close Menu Function
     const closeMenu = () => { 
         drawer.classList.remove('open'); 
         overlay.classList.remove('active'); 
@@ -68,13 +78,23 @@ function initNavigation() {
 
     // Dropdown Toggles (About Us, etc.)
     dropdowns.forEach(btn => {
-        btn.onclick = () => {
-            const sub = btn.nextElementSibling;
-            sub.classList.toggle('show');
+        btn.onclick = (e) => {
+            e.preventDefault();
+            const subMenu = btn.nextElementSibling;
             const plusIcon = btn.querySelector('.plus');
+            
+            subMenu.classList.toggle('show');
+            
             if (plusIcon) {
-                plusIcon.textContent = sub.classList.contains('show') ? '−' : '+';
+                plusIcon.textContent = subMenu.classList.contains('show') ? '−' : '+';
             }
         };
     });
+}
+
+// 4. EXECUTION: Run as soon as the DOM is ready
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', injectNavigation);
+} else {
+    injectNavigation();
 }
