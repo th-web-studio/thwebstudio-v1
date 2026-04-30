@@ -1,14 +1,67 @@
-    <main class="section-padding container">
-        <h2 class="section-title">The Standards</h2>
-        <h1>Our Commitment</h1>
-        <div class="grid">
-            <div class="card">
-                <h3>Absolute Ownership</h3>
-                <p>You own every line of code. No proprietary locks, no hidden monthly "access" fees.</p>
-            </div>
-            <div class="card">
-                <h3>Performance First</h3>
-                <p>If it’s slow, it’s broken. We optimize for speed and mobile functionality over flashy animations.</p>
-            </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Standards | TH WEB STUDIO</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <nav class="top-bar">
+        <div class="nav-container">
+            <a href="index.html" class="brand">TH WEB <span class="accent">STUDIO</span></a>
+            <button class="menu-btn" id="menu-btn">
+                <div class="btn-line"></div>
+                <div class="btn-line short"></div>
+            </button>
+        </div>
+    </nav>
+
+    <div class="side-drawer" id="side-drawer">
+        <div class="drawer-header">
+            <button class="close-btn" id="close-btn">&times;</button>
+        </div>
+        <div class="drawer-content">
+            <ul class="nav-list">
+                <li><a href="index.html" class="main-link">HOME</a></li>
+                <li><a href="portfolio.html" class="main-link">PORTFOLIO</a></li>
+                <li><a href="services.html" class="main-link">SERVICES</a></li>
+                <li class="has-sub">
+                    <button class="dropdown-btn">ABOUT <span class="plus">+</span></button>
+                    <ul class="sub-menu">
+                        <li><a href="about-us.html">About Us</a></li>
+                        <li><a href="standards.html">Our Standards</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                    </ul>
+                </li>
+                <li><a href="contact.html" class="main-link">CONTACT</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="overlay" id="overlay"></div>
+
+    <main class="container section-padding">
+        <span class="eyebrow">THE BLUEPRINT</span>
+        <h1>Quality without <br><span class="blue-text">Compromise.</span></h1>
+        
+        <div class="card">
+            <h3 style="color: var(--blue);">Performance First</h3>
+            <p>A beautiful site is useless if it's slow. We prioritize load speeds and mobile optimization to ensure your business is accessible to everyone, regardless of their connection strength.</p>
+        </div>
+
+        <div class="card">
+            <h3 style="color: var(--blue);">Full Ownership</h3>
+            <p>We believe you should own your digital assets. Once the project is complete, the code and domain belong to you—no proprietary locks or hidden monthly fees.</p>
+        </div>
+
+        <div class="card">
+            <h3 style="color: var(--blue);">Clean Architecture</h3>
+            <p>Our code is built to last. We use industry-standard practices that make it easy to scale your site as your business grows from local leader to regional authority.</p>
         </div>
     </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
