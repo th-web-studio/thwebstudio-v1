@@ -27,7 +27,7 @@ html, body {
 }
 
 .nav-container { display: flex; justify-content: space-between; width: 100%; align-items: center; }
-.brand { text-decoration: none; font-weight: 900; color: #fff; text-transform: uppercase; }
+.brand { text-decoration: none; font-weight: 900; color: #fff; text-transform: uppercase; letter-spacing: 1px; }
 .accent { color: var(--blue); }
 
 .menu-btn {
@@ -44,16 +44,34 @@ html, body {
     padding: 40px; border-left: 1px solid var(--border);
 }
 .side-drawer.open { right: 0; }
-.close-btn { background: none; border: none; color: #fff; font-size: 2.5rem; cursor: pointer; }
 
-/* Typography & Hero */
-.hero-section { padding-top: 200px; }
+/* Header for X alignment */
+.drawer-header {
+    display: flex;
+    justify-content: flex-end; 
+    margin-bottom: 40px;
+}
+
+.close-btn { 
+    background: none; border: none; color: #fff; font-size: 3rem; 
+    cursor: pointer; line-height: 1; padding: 0; 
+}
+
+/* Portfolio Card Styling */
+.card {
+    background: #0f1217;
+    border: 1px solid var(--border);
+    padding: 40px;
+    margin-top: 30px;
+}
+.list-style { list-style: none; padding: 0; }
+.list-style li { color: #94a3b8; margin-bottom: 12px; font-weight: 500; }
+
+/* Typography */
 h1 { font-size: clamp(2.5rem, 8vw, 4.5rem); font-weight: 900; line-height: 1.1; margin: 0 0 25px 0; }
-.blue-text { color: var(--blue); }
-.eyebrow { font-size: 0.7rem; color: var(--blue); letter-spacing: 3px; font-weight: 900; display: block; margin-bottom: 10px; }
-.btn-primary { background: var(--blue); color: #fff; padding: 15px 35px; text-decoration: none; font-weight: 800; display: inline-block; }
+.section-title { font-size: 0.7rem; color: var(--blue); letter-spacing: 3px; font-weight: 900; text-transform: uppercase; margin-bottom: 20px; }
 
-/* Sub Menu Styles */
+/* Menu Interaction */
 .nav-list { list-style: none; padding: 0; }
 .nav-list li { margin-bottom: 25px; }
 .main-link, .dropdown-btn { 
@@ -63,6 +81,7 @@ h1 { font-size: clamp(2.5rem, 8vw, 4.5rem); font-weight: 900; line-height: 1.1; 
 .sub-menu { list-style: none; padding-left: 15px; margin-top: 15px; display: none; border-left: 1px solid var(--blue); }
 .sub-menu.show { display: block; }
 .sub-menu a { text-decoration: none; color: #94a3b8; font-size: 0.9rem; display: block; margin-bottom: 10px; }
-.nav-cta { display: inline-block; border: 1px solid var(--blue); color: var(--blue); padding: 10px 20px; text-decoration: none; font-weight: 900; }
+.nav-cta { display: block; border: 1px solid var(--blue); color: var(--blue); padding: 12px; text-decoration: none; font-weight: 900; text-align: center; }
+
 .overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); opacity: 0; pointer-events: none; transition: 0.4s; z-index: 1500; }
 .overlay.active { opacity: 1; pointer-events: auto; }
