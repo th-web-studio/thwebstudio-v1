@@ -1,11 +1,67 @@
-    <main class="section-padding container">
-        <h2 class="section-title">Contact</h2>
-        <h1>Let's build <br>something solid.</h1>
-        <p>PH: (000) 000-0000</p>
-        <form class="contact-form">
-            <input type="text" placeholder="Name">
-            <input type="email" placeholder="Email">
-            <textarea placeholder="Project Details" rows="5"></textarea>
-            <button type="button" class="btn-primary">Send Message</button>
-        </form>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | TH WEB STUDIO</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <nav class="top-bar">
+        <div class="nav-container">
+            <a href="index.html" class="brand">TH WEB <span class="accent">STUDIO</span></a>
+            <button class="menu-btn" id="menu-btn">
+                <div class="btn-line"></div>
+                <div class="btn-line short"></div>
+            </button>
+        </div>
+    </nav>
+
+    <div class="side-drawer" id="side-drawer">
+        <div class="drawer-header">
+            <button class="close-btn" id="close-btn">&times;</button>
+        </div>
+        <div class="drawer-content">
+            <ul class="nav-list">
+                <li><a href="index.html" class="main-link">HOME</a></li>
+                <li><a href="portfolio.html" class="main-link">PORTFOLIO</a></li>
+                <li><a href="services.html" class="main-link">SERVICES</a></li>
+                <li class="has-sub">
+                    <button class="dropdown-btn">ABOUT <span class="plus">+</span></button>
+                    <ul class="sub-menu">
+                        <li><a href="about-us.html">About Us</a></li>
+                        <li><a href="standards.html">Our Standards</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                    </ul>
+                </li>
+                <li><a href="contact.html" class="main-link">CONTACT</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="overlay" id="overlay"></div>
+
+    <main class="container section-padding">
+        <span class="eyebrow">GET IN TOUCH</span>
+        <h1>Let's build <br><span class="blue-text">something solid.</span></h1>
+        
+        <div class="card">
+            <h3 style="color: var(--blue);">Direct Contact</h3>
+            <p style="font-size: 1.8rem; color: #fff; margin: 20px 0; font-weight: 900;">(000) 000-0000</p>
+            <p>Based in our local service area, we are currently accepting new projects for Summer 2026. Give us a call or text to discuss your business goals.</p>
+        </div>
+
+        <div class="card">
+            <h3 style="color: var(--blue);">What to Expect</h3>
+            <ul class="list-style">
+                <li>• Initial consultation to define your site architecture</li>
+                <li>• Transparent project timelines and milestones</li>
+                <li>• Professional results tailored to your local market</li>
+            </ul>
+        </div>
     </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
