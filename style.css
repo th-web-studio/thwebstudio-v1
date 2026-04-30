@@ -1,11 +1,8 @@
-/* 1. FORCE THEME - Prevents the 'White Screen' issue */
+/* 1. THEME & RESET */
 html, body {
     background-color: #05070a !important;
     color: #ffffff !important;
-    margin: 0;
-    padding: 0;
-    min-height: 100vh;
-    width: 100%;
+    margin: 0; padding: 0; min-height: 100vh; width: 100%;
 }
 
 :root {
@@ -16,7 +13,7 @@ html, body {
 
 * { box-sizing: border-box; font-family: 'Inter', sans-serif; }
 
-/* 2. THE TOP BAR */
+/* 2. TOP BAR */
 .top-bar {
     position: fixed; top: 0; left: 0; width: 100%; height: 85px;
     background: #05070a; z-index: 1000;
@@ -32,7 +29,7 @@ html, body {
 .brand { text-decoration: none; font-weight: 900; color: #fff; text-transform: uppercase; letter-spacing: 1px; }
 .accent { color: var(--blue); }
 
-/* 3. THE DRAWER & THE 'X' BUTTON */
+/* 3. DRAWER & OVERLAY */
 .side-drawer {
     position: fixed; top: 0; right: -100%; width: 400px; height: 100%;
     background: #0a0c10; z-index: 2000; transition: 0.5s ease;
@@ -40,48 +37,53 @@ html, body {
 }
 .side-drawer.open { right: 0; }
 
-.drawer-header {
-    display: flex;
-    justify-content: flex-end;
-    width: 100%;
-    margin-bottom: 20px;
-}
+.drawer-header { display: flex; justify-content: flex-end; width: 100%; margin-bottom: 20px; }
 
 .close-btn { 
     background: none; border: none; color: #fff; font-size: 3.5rem; 
     cursor: pointer; line-height: 0.5; padding: 10px; 
 }
 
-/* 4. LAYOUT SYSTEM */
-.container { max-width: 1200px; margin: 0 auto; padding: 0 6%; width: 100%; }
-.section-padding { padding: 120px 0; }
-.hero-section { padding-top: 180px; padding-bottom: 80px; }
-
-h1 { font-size: clamp(2.5rem, 8vw, 4.5rem); font-weight: 900; line-height: 1.1; margin: 20px 0; }
-.blue-text { color: var(--blue); }
-.eyebrow { font-size: 0.7rem; color: var(--blue); letter-spacing: 3px; font-weight: 900; text-transform: uppercase; }
-
-/* 5. PORTFOLIO CARDS */
-.card {
-    background: #0f1217;
-    border: 1px solid var(--border);
-    padding: 40px;
-    margin-top: 30px;
+/* 4. MENU BRANDING & ALIGNMENT */
+.drawer-brand {
+    margin-bottom: 40px; font-weight: 900; font-size: 1.5rem;
+    letter-spacing: 1px; border-bottom: 1px solid var(--border); padding-bottom: 20px;
 }
-.list-style { list-style: none; padding: 0; margin-top: 20px; }
-.list-style li { color: #94a3b8; margin-bottom: 12px; font-weight: 500; }
 
-/* 6. DRAWER MENU ITEMS */
-.nav-list { list-style: none; padding: 0; }
-.nav-list li { margin-bottom: 25px; }
+.drawer-tagline {
+    font-size: 0.7rem; color: #94a3b8; text-transform: uppercase;
+    letter-spacing: 2px; margin-top: 5px; font-weight: 400;
+}
+
+.nav-list { list-style: none; padding: 0; margin: 0; }
+.nav-list li { margin-bottom: 25px; padding: 0; }
+
 .main-link, .dropdown-btn { 
     text-decoration: none; color: #fff; font-size: 1.1rem; font-weight: 900; 
-    background: none; border: none; width: 100%; text-align: left; display: flex; justify-content: space-between; cursor: pointer;
+    background: none; border: none; width: 100%; text-align: left; 
+    display: flex; justify-content: space-between; cursor: pointer; padding: 0;
 }
-.sub-menu { list-style: none; padding-left: 15px; margin-top: 15px; display: none; border-left: 1px solid var(--blue); }
+
+.sub-menu { list-style: none; padding-left: 20px; margin-top: 15px; display: none; border-left: 1px solid var(--blue); }
 .sub-menu.show { display: block; }
 .sub-menu a { text-decoration: none; color: #94a3b8; font-size: 0.9rem; display: block; margin-bottom: 10px; }
 
+/* 5. BLUE CTA BUTTON */
+.nav-cta-button {
+    display: block; background-color: var(--blue); color: #ffffff !important;
+    text-align: center; padding: 16px 20px; border-radius: 4px;
+    font-weight: 900; text-decoration: none; text-transform: uppercase;
+    letter-spacing: 1px; margin-top: 10px; transition: 0.3s ease;
+}
+.nav-cta-button:hover { background-color: #1d4ed8; transform: translateY(-2px); }
+
+/* 6. GLOBAL LAYOUT */
+.container { max-width: 1200px; margin: 0 auto; padding: 0 6%; width: 100%; }
+.section-padding { padding: 120px 0; }
+.blue-text { color: var(--blue); }
+.eyebrow { font-size: 0.7rem; color: var(--blue); letter-spacing: 3px; font-weight: 900; text-transform: uppercase; }
+
+.card { background: #0f1217; border: 1px solid var(--border); padding: 40px; margin-top: 30px; }
 .overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); opacity: 0; pointer-events: none; transition: 0.4s; z-index: 1500; }
 .overlay.active { opacity: 1; pointer-events: auto; }
 
@@ -91,24 +93,3 @@ h1 { font-size: clamp(2.5rem, 8vw, 4.5rem); font-weight: 900; line-height: 1.1; 
 }
 .btn-line { width: 22px; height: 2px; background: #fff; margin: 3px 0; }
 .btn-line.short { width: 14px; }
-
-/* 7. NEW: NAVIGATION CTA BUTTON */
-.nav-cta-button {
-    display: block; /* Makes it take up space */
-    background-color: var(--blue); /* Uses your brand blue */
-    color: #ffffff !important;
-    text-align: center;
-    padding: 16px 20px;
-    border-radius: 4px; /* Matches your professional/grounded style */
-    font-weight: 900;
-    text-decoration: none;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-top: 10px;
-    transition: background 0.3s ease, transform 0.2s ease;
-}
-
-.nav-cta-button:hover {
-    background-color: #1d4ed8; /* Slightly darker blue on hover */
-    transform: translateY(-2px); /* Subtle lift effect */
-}
