@@ -1,123 +1,103 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TH WEB STUDIO | Solid Design & Development</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
-</head>
-<body>
+/* --- CORE BRAND SYSTEM --- */
+:root {
+    --bg-black: #05070a;
+    --bg-grey: #0f1217;
+    --studio-blue: #2563eb;
+    --text-white: #ffffff;
+    --text-dim: #94a3b8;
+    --border: rgba(255, 255, 255, 0.1);
+}
 
-    <nav class="top-bar">
-        <div class="nav-container">
-            <a href="index.html" class="brand">TH WEB <span class="accent">STUDIO</span></a>
-            
-            <button class="menu-btn" id="menu-btn">
-                <div class="btn-line"></div>
-                <div class="btn-line short"></div>
-            </button>
-        </div>
-    </nav>
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+body { background: var(--bg-black); color: var(--text-white); line-height: 1.6; overflow-x: hidden; }
 
-    <div class="side-drawer" id="side-drawer">
-        <div class="drawer-header">
-            <button class="close-btn" id="close-btn">&times;</button>
-        </div>
-        
-        <div class="drawer-content">
-            <ul class="nav-list">
-                <li><a href="index.html" class="main-link">HOME</a></li>
-                <li><a href="portfolio.html" class="main-link">PORTFOLIO</a></li>
-                <li><a href="services.html" class="main-link">SERVICES</a></li>
-                
-                <li class="has-sub">
-                    <button class="dropdown-btn">ABOUT <span class="plus">+</span></button>
-                    <ul class="sub-menu">
-                        <li><a href="about.html#about-us">About Us</a></li>
-                        <li><a href="about.html#standards">Our Standards</a></li>
-                        <li><a href="about.html#faq">FAQ</a></li>
-                    </ul>
-                </li>
+.container { max-width: 1200px; margin: 0 auto; padding: 0 6%; }
+.section-padding { padding: 100px 0; }
+.blue-bg { background: var(--studio-blue); text-align: center; color: #fff; }
 
-                <li><a href="#contact" class="main-link">CONTACT</a></li>
-                <li><a href="#contact" class="nav-cta">GET STARTED</a></li>
-            </ul>
-        </div>
-    </div>
+/* --- TOP NAVIGATION --- */
+.top-bar {
+    position: fixed; top: 0; width: 100%; height: 85px;
+    display: flex; align-items: center; z-index: 1000;
+    background: rgba(5, 7, 10, 0.95); backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+}
 
-    <div class="overlay" id="overlay"></div>
+.nav-container { display: flex; justify-content: space-between; align-items: center; width: 100%; padding: 0 6%; }
 
-    <main>
-        <section id="hero" class="hero-section">
-            <div class="container">
-                <span class="eyebrow">ESTABLISHED 2026</span>
-                <h1>Solid web design for <br>businesses that <span class="blue-text">want results.</span></h1>
-                <p>We build high-performance websites and custom business tools for companies that value quality work over quick templates.</p>
-                <div class="hero-actions">
-                    <a href="portfolio.html" class="btn-primary">View Work</a>
-                </div>
-            </div>
-        </section>
+.brand { text-decoration: none; font-weight: 900; color: #fff; letter-spacing: 1px; font-size: 1.1rem; }
+.accent { color: var(--studio-blue); }
 
-        <section class="section-padding">
-            <div class="container">
-                <div class="hook-grid">
-                    <h2 class="section-title">THE STUDIO</h2>
-                    <h3>We don't just "make websites." We build business tools.</h3>
-                    <p>TH Web Studio was started to give businesses a better digital foundation. With a background in coding and data analytics, we build tools that actually help your business run better, not just look better.</p>
-                </div>
-            </div>
-        </section>
+/* --- HAMBURGER --- */
+.menu-btn {
+    width: 45px; height: 45px; background: transparent; border: 1px solid var(--border);
+    display: flex; flex-direction: column; justify-content: center; align-items: flex-end;
+    padding-right: 10px; cursor: pointer; transition: 0.3s;
+}
+.btn-line { width: 22px; height: 2px; background: #fff; margin: 3px 0; }
+.btn-line.short { width: 14px; }
 
-        <section id="contact" class="section-padding blue-bg">
-            <div class="container">
-                <h2>Ready to get to work?</h2>
-                <p>Accepting new projects for 2026.</p>
-                <div class="contact-details">
-                    <p>PH: (000) 000-0000</p>
-                </div>
-            </div>
-        </section>
-    </main>
+/* --- SIDE DRAWER --- */
+.side-drawer {
+    position: fixed; top: 0; right: -100%; width: 400px; height: 100%;
+    background: #0a0c10; z-index: 2000; transition: 0.5s cubic-bezier(0.7, 0, 0.3, 1);
+    border-left: 1px solid var(--border); padding: 40px;
+}
+.side-drawer.open { right: 0; }
 
-    <footer>
-        <div class="container footer-inner">
-            <span>© 2026 TH WEB STUDIO</span>
-            <span>PROUDLY BASED IN THE US</span>
-        </div>
-    </footer>
+.drawer-header { display: flex; justify-content: flex-end; margin-bottom: 40px; }
+.close-btn { background: none; border: none; color: #fff; font-size: 2.5rem; cursor: pointer; line-height: 1; }
 
-    <script>
-        const menuBtn = document.getElementById('menu-btn');
-        const closeBtn = document.getElementById('close-btn');
-        const drawer = document.getElementById('side-drawer');
-        const overlay = document.getElementById('overlay');
-        const dropdowns = document.querySelectorAll('.dropdown-btn');
+.overlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.7); opacity: 0; pointer-events: none; transition: 0.4s; z-index: 1500;
+}
+.overlay.active { opacity: 1; pointer-events: auto; }
 
-        // Open Menu
-        menuBtn.addEventListener('click', () => {
-            drawer.classList.add('open');
-            overlay.classList.add('active');
-        });
+/* --- DRAWER LINKS --- */
+.nav-list { list-style: none; }
+.nav-list li { margin-bottom: 25px; }
 
-        // Close Menu
-        const closeMenu = () => {
-            drawer.classList.remove('open');
-            overlay.classList.remove('active');
-        };
+.main-link, .dropdown-btn {
+    text-decoration: none; color: #fff; font-size: 1.1rem; font-weight: 900;
+    display: flex; justify-content: space-between; width: 100%;
+    background: none; border: none; cursor: pointer; text-align: left;
+}
 
-        closeBtn.addEventListener('click', closeMenu);
-        overlay.addEventListener('click', closeMenu);
+.sub-menu {
+    list-style: none; padding-left: 15px; margin-top: 15px;
+    display: none; border-left: 1px solid var(--studio-blue);
+}
+.sub-menu.show { display: block; }
+.sub-menu li { margin-bottom: 12px; }
+.sub-menu a { text-decoration: none; color: var(--text-dim); font-size: 0.9rem; font-weight: 600; display: block; }
 
-        // Accordion Toggle for "About"
-        dropdowns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                const subMenu = btn.nextElementSibling;
-                subMenu.classList.toggle('show');
-                btn.querySelector('.plus').textContent = subMenu.classList.contains('show') ? '−' : '+';
-            });
-        });
-    </script>
-</body>
-</html>
+.nav-cta {
+    display: inline-block; margin-top: 20px; color: var(--studio-blue);
+    font-weight: 900; text-decoration: none; border: 1px solid var(--studio-blue);
+    padding: 12px 25px; font-size: 0.8rem; text-align: center;
+}
+
+/* --- MAIN CONTENT --- */
+.hero-section { padding: 180px 0 100px; }
+h1 { font-size: clamp(2.5rem, 8vw, 5rem); font-weight: 900; line-height: 1.1; margin-bottom: 25px; }
+.blue-text { color: var(--studio-blue); }
+
+.btn-primary {
+    display: inline-block; background: var(--studio-blue); color: #fff;
+    text-decoration: none; padding: 15px 35px; font-weight: 800; font-size: 0.9rem;
+}
+
+.hook-grid { max-width: 800px; }
+.hook-grid h3 { font-size: 2.2rem; margin-bottom: 20px; font-weight: 900; }
+.section-title { font-size: 0.7rem; color: var(--studio-blue); letter-spacing: 3px; font-weight: 900; margin-bottom: 30px; text-transform: uppercase; }
+
+footer { padding: 50px 0; border-top: 1px solid var(--border); font-size: 0.7rem; color: var(--text-dim); }
+.footer-inner { display: flex; justify-content: space-between; }
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+    .side-drawer { width: 85%; }
+    h1 { font-size: 3rem; }
+    .footer-inner { flex-direction: column; gap: 15px; text-align: center; }
+}
