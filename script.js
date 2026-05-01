@@ -1,13 +1,13 @@
 const navHTML = `
     <nav class="top-bar">
         <div class="nav-container">
-            <div class="brand-wrapper">
-                <a href="index.html" class="brand">TH WEB <span class="accent">STUDIO</span></a>
-                <span class="nav-tagline">We build websites that grow business</span>
-            </div>
-            <button class="menu-btn" id="menu-btn">
-                <div class="btn-line"></div>
-                <div class="btn-line short"></div>
+            <a href="index.html" class="brand">TH WEB <span class="accent">STUDIO</span></a>
+            
+            <!-- ENHANCED HAMBURGER ICON -->
+            <button class="menu-btn" id="menu-btn" aria-label="Open Menu">
+                <span class="hamburger-box">
+                    <span class="hamburger-inner"></span>
+                </span>
             </button>
         </div>
     </nav>
@@ -19,6 +19,7 @@ const navHTML = `
         <div class="drawer-content">
             <div class="drawer-brand">
                 TH WEB <span class="accent">STUDIO</span>
+                <!-- TAGLINE KEPT IN DRAWER -->
                 <p class="drawer-tagline">We build websites that grow business</p>
             </div>
             
@@ -62,11 +63,13 @@ function initNavigationLogic() {
     menuBtn.onclick = () => { 
         drawer.classList.add('open'); 
         overlay.classList.add('active'); 
+        menuBtn.classList.add('is-active'); // For animation
     };
 
     const closeMenu = () => { 
         drawer.classList.remove('open'); 
         overlay.classList.remove('active'); 
+        menuBtn.classList.remove('is-active');
     };
 
     closeBtn.onclick = closeMenu;
