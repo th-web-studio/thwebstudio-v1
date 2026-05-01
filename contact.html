@@ -15,19 +15,80 @@
         <span class="eyebrow">GET IN TOUCH</span>
         <h1>Let's build <br><span class="blue-text">something solid.</span></h1>
         
-        <div class="card">
-            <h3 style="color: var(--blue);">Direct Contact</h3>
-            <p style="font-size: 1.8rem; color: #fff; margin: 20px 0; font-weight: 900;">(000) 000-0000</p>
-            <p>Based in our local service area, we are currently accepting new projects for Summer 2026. Give us a call or text to discuss your business goals.</p>
+        <!-- INTERACTIVE ACTION BUBBLES -->
+        <div class="contact-bubbles">
+            <a href="tel:6066910471" class="bubble-btn">
+                <span class="bubble-icon">📞</span>
+                <span class="bubble-text">Call Now</span>
+            </a>
+            <a href="sms:6066910471" class="bubble-btn">
+                <span class="bubble-icon">💬</span>
+                <span class="bubble-text">Send Text</span>
+            </a>
+            <a href="mailto:thwebstudio@outlook.com" class="bubble-btn">
+                <span class="bubble-icon">✉️</span>
+                <span class="bubble-text">Email Us</span>
+            </a>
         </div>
 
-        <div class="card">
-            <h3 style="color: var(--blue);">What to Expect</h3>
-            <ul class="list-style">
-                <li>• Initial consultation to define your site architecture</li>
-                <li>• Transparent project timelines and milestones</li>
-                <li>• Professional results tailored to your local market</li>
-            </ul>
+        <div class="premium-grid" style="margin-top: 40px;">
+            <!-- LEFT COLUMN: THE INTERACTIVE FORM -->
+            <div class="studio-body">
+                <form action="#" class="contact-form" id="project-form">
+                    <h3 style="color: var(--blue); margin-bottom: 20px;">Project Inquiry</h3>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" placeholder="Full Name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone</label>
+                            <input type="tel" id="phone" name="phone" placeholder="(606) 691-0471" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="thwebstudio@outlook.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="project-type">Service Needed</label>
+                        <select id="project-type" name="project-type">
+                            <option value="new-site">New Business Website</option>
+                            <option value="redesign">Website Redesign</option>
+                            <option value="custom-tool">Custom Business Tool</option>
+                            <option value="other">Other Inquiry</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Project Details</label>
+                        <textarea id="message" name="message" rows="5" placeholder="Tell us about your business goals..."></textarea>
+                    </div>
+
+                    <button type="submit" class="nav-cta-button form-submit">Start a Project</button>
+                </form>
+            </div>
+
+            <!-- RIGHT COLUMN: INFO CARDS -->
+            <div class="studio-label">
+                <div class="card" style="margin-bottom: 20px;">
+                    <h3 style="color: var(--blue);">Direct Line</h3>
+                    <p style="font-size: 1.4rem; color: #fff; margin: 10px 0; font-weight: 900;">(606) 691-0471</p>
+                    <p style="font-size: 0.9rem;">Based in our local service area, we are currently accepting new projects for Summer 2026.</p>
+                </div>
+
+                <div class="card">
+                    <h3 style="color: var(--blue);">The Process</h3>
+                    <ul class="list-style" style="font-size: 0.9rem;">
+                        <li>• Initial architecture consultation</li>
+                        <li>• Transparent milestone tracking</li>
+                        <li>• Results built for your local market</li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </main>
 
