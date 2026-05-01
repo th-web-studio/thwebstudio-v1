@@ -5,57 +5,91 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio | TH WEB STUDIO</title>
     
+    <!-- Link to main styles for Nav/Footer/Fonts -->
     <link rel="stylesheet" href="style.css"> 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
 
     <style>
-        /* 1. THE GRID (The Layout) */
-        .portfolio-gallery {
-            display: grid !important;
-            grid-template-columns: repeat(3, 1fr) !important;
-            gap: 20px !important;
-            margin: 50px 0 !important;
+        /* --- PORTFOLIO ENGINE --- */
+
+        /* 1. Force the container to allow a grid layout */
+        main.container {
+            display: block !important; 
             width: 100% !important;
+            max-width: 1300px !important;
+            margin: 0 auto !important;
+            padding-top: 120px !important; /* Space for fixed nav */
         }
 
-        /* 2. THE BOX (The Frame) */
+        /* 2. The Grid - This is what stops the "listing down" */
+        .portfolio-gallery {
+            display: grid !important;
+            grid-template-columns: repeat(3, 1fr) !important; /* 3 columns */
+            gap: 20px !important;
+            width: 100% !important;
+            margin: 50px 0 !important;
+        }
+
+        /* 3. The Box - Keeps images from being huge */
         .gallery-item {
             width: 100% !important;
-            aspect-ratio: 3 / 2 !important; /* Forces all boxes to be the same shape */
+            height: 300px !important; /* Fixed height for consistency */
             overflow: hidden !important;
             background: #0a0c10;
             border: 1px solid rgba(255, 255, 255, 0.1);
             cursor: pointer;
+            position: relative;
         }
 
-        /* 3. THE IMAGE (The Content) */
+        /* 4. The Image - Crops to fit the box */
         .gallery-item img {
             width: 100% !important;
             height: 100% !important;
-            object-fit: cover !important; /* Crops image to fit box perfectly */
+            object-fit: cover !important; 
             display: block !important;
-            transition: transform 0.3s ease;
+            transition: transform 0.5s ease;
         }
 
         .gallery-item:hover img {
             transform: scale(1.05);
         }
 
-        /* 4. LIGHTBOX (The Pop-up) */
+        /* 5. Lightbox UI */
         .lightbox-overlay {
-            display: none; position: fixed; inset: 0; z-index: 3000;
-            background: rgba(0,0,0,0.95); backdrop-filter: blur(10px);
-            justify-content: center; align-items: center;
+            display: none; 
+            position: fixed; 
+            inset: 0; 
+            z-index: 9999;
+            background: rgba(5, 7, 10, 0.98); 
+            backdrop-filter: blur(15px);
+            justify-content: center; 
+            align-items: center;
         }
-        .lightbox-img { max-width: 85%; max-height: 75vh; object-fit: contain; border: 1px solid rgba(255,255,255,0.2); }
-        .close-lightbox { position: absolute; top: 20px; right: 30px; color: #fff; font-size: 50px; cursor: pointer; }
 
-        /* 5. MOBILE FIX */
+        .lightbox-img { 
+            max-width: 90%; 
+            max-height: 80vh; 
+            object-fit: contain; 
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 30px;
+            right: 40px;
+            color: #fff;
+            font-size: 40px;
+            cursor: pointer;
+            font-weight: 100;
+        }
+
+        /* 6. Responsive - Stacks on mobile only */
         @media (max-width: 992px) {
             .portfolio-gallery { grid-template-columns: repeat(2, 1fr) !important; }
         }
         @media (max-width: 600px) {
             .portfolio-gallery { grid-template-columns: 1fr !important; }
+            .gallery-item { height: 250px !important; }
         }
     </style>
 </head>
@@ -63,22 +97,20 @@
 
     <div id="nav-placeholder"></div>
 
-    <main class="section-padding container">
-        <h2 class="section-title">Selected Work</h2>
-        <h1>Phipps Excavating & <br>Land Management</h1>
-        <p style="max-width: 600px; margin-bottom: 40px; color: #94a3b8;">Transforming a local reputation into a professional digital brand. Built for authority and high-speed performance.</p>
+    <main class="container">
+        <h2 class="section-title" style="color: #2563eb; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 3px; font-weight: 900; margin-bottom: 20px;">Selected Work</h2>
+        <h1 style="font-size: clamp(2.5rem, 5vw, 4rem); line-height: 1.1; font-weight: 900; margin-bottom: 20px;">Phipps Excavating & <br>Land Management</h1>
+        <p style="max-width: 650px; margin-bottom: 40px; color: #94a3b8; line-height: 1.6;">Transforming a local reputation into a professional digital brand. Built for authority, lead generation, and high-speed performance.</p>
         
-        <div class="card" style="margin-bottom: 60px; background: #0a0c10; border: 1px solid rgba(255,255,255,0.1); padding: 30px;">
-            <h3 style="color: #2563eb; margin-bottom: 15px;">Project Scope</h3>
-            <ul class="list-style" style="list-style: none; padding: 0;">
-                <li style="margin-bottom: 15px;">• <strong>Professional Branding:</strong> A grounded, authoritative look built for an industry leader.</li>
-                <li style="margin-bottom: 15px;">• <strong>Service Architecture:</strong> Clear categorization of land management and excavation services.</li>
-                <li style="margin-bottom: 15px;">• <strong>Built for the Field:</strong> High-speed mobile performance for clients on the go.</li>
-                <li>• <strong>Lead Generation:</strong> Designed a streamlined quote form and instant-contact buttons.</li>
+        <div class="card" style="margin-bottom: 60px; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.1); padding: 40px;">
+            <h3 style="color: #2563eb; margin-bottom: 20px; font-size: 1.2rem;">Project Scope</h3>
+            <ul style="list-style: none; padding: 0; color: #cbd5e1; line-height: 2;">
+                <li>• <strong>Professional Branding:</strong> Grounded look for an industry leader.</li>
+                <li>• <strong>Service Architecture:</strong> Clear categorization of excavation services.</li>
+                <li>• <strong>Built for the Field:</strong> High-speed mobile performance.</li>
+                <li>• <strong>Lead Generation:</strong> Streamlined quote forms and instant-contact buttons.</li>
             </ul>
         </div>
-
-        <p class="gallery-hint" style="color: #2563eb; font-weight: 900; text-transform: uppercase; letter-spacing: 2px; font-size: 0.7rem; margin-bottom: 20px;">Click any image to view details</p>
 
         <div class="portfolio-gallery">
             <div class="gallery-item"><img src="images/phipps-1.jpg" onclick="openLightbox(this)"></div>
@@ -93,17 +125,27 @@
         </div>
     </main>
 
-    <div id="lightbox" class="lightbox-overlay" onclick="closeLightbox()">
-        <span class="close-lightbox">&times;</span>
-        <img id="lightbox-img" class="lightbox-img" src="" alt="Enlarged view">
+    <!-- LIGHTBOX -->
+    <div id="lightbox" class="lightbox-overlay" onclick="this.style.display='none'">
+        <span class="close-btn">&times;</span>
+        <img id="lightbox-img" class="lightbox-img" src="">
     </div>
 
     <footer>
-        <div class="container" style="padding: 40px 0; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.8rem; color: #94a3b8;">
+        <div class="container" style="padding: 60px 0 40px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.8rem; color: #64748b; text-align: center;">
             © 2026 TH WEB STUDIO
         </div>
     </footer>
 
     <script src="script.js"></script>
+    <script>
+        // Inline Lightbox logic for maximum reliability
+        function openLightbox(img) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            lightboxImg.src = img.src;
+            lightbox.style.display = 'flex';
+        }
+    </script>
 </body>
 </html>
