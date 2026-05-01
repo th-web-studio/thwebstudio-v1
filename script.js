@@ -15,6 +15,11 @@ const navHTML = `
         </div>
         <div class="drawer-content">
             <div class="drawer-brand">
+                <!-- LOGO INSERTION -->
+                <div class="brand-logo-container" style="margin-bottom: 15px;">
+                    <img src="images/th-logo-1.PNG" alt="TH Web Studio Logo" style="height: 70px; width: auto; display: block; margin: 0 auto;">
+                </div>
+                
                 TH WEB <span class="accent">STUDIO</span>
                 <p class="drawer-tagline">Solid Design & Engineering</p>
             </div>
