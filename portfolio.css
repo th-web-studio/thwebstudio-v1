@@ -1,38 +1,49 @@
-/* 1. THE GRID CONTAINER */
+/* 1. RESET THE CONTAINER */
+/* This forces the page to stop treating items like a vertical list */
+main.container {
+    display: block !important;
+    width: 90% !important;
+    max-width: 1200px !important;
+    margin: 0 auto !important;
+}
+
+/* 2. THE GRID */
 .portfolio-gallery {
     display: grid !important;
-    /* This forces 3 columns. If it's still stacking, the width of the page is too small or this line is being ignored */
-    grid-template-columns: repeat(3, 1fr) !important;
-    gap: 20px !important;
-    width: 100% !important;
+    /* This creates 3 equal columns */
+    grid-template-columns: repeat(3, 1fr) !important; 
+    gap: 15px !important;
     margin: 40px 0 !important;
+    width: 100% !important;
 }
 
-/* 2. THE BOX (The "Fence") */
+/* 3. THE BOX (Stops images from being "too large") */
 .gallery-item {
     width: 100% !important;
-    height: 250px !important; /* This locks the height so they can't stack vertically */
-    overflow: hidden !important; /* Anything outside this 250px box is hidden */
-    background: #0a0c10;
+    height: 250px !important; /* This locks the height */
+    overflow: hidden !important;
     border: 1px solid rgba(255, 255, 255, 0.1);
+    background: #000;
 }
 
-/* 3. THE IMAGE (The "Content") */
+/* 4. THE IMAGE */
 .gallery-item img {
     width: 100% !important;
     height: 100% !important;
-    /* 'cover' is the most important part: it crops the photo to fit the box 
-       instead of letting the photo push the box open */
+    /* This crops the photo so it fits the box perfectly */
     object-fit: cover !important; 
     display: block !important;
 }
 
-/* 4. MOBILE EMERGENCY BRAKE */
-@media (max-width: 768px) {
+/* 5. MOBILE VIEW */
+@media (max-width: 800px) {
     .portfolio-gallery {
-        grid-template-columns: 1fr !important; /* Only stacks on small phones */
+        grid-template-columns: 1fr 1fr !important; /* 2 columns on tablets */
     }
-    .gallery-item {
-        height: 200px !important;
+}
+
+@media (max-width: 500px) {
+    .portfolio-gallery {
+        grid-template-columns: 1fr !important; /* 1 column on phones */
     }
 }
