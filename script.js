@@ -1,4 +1,4 @@
-Const navHTML = `
+const navHTML = `
     <nav class="top-bar">
         <div class="nav-container">
             <a href="index.html" class="brand">TH WEB <span class="accent">STUDIO</span></a>
