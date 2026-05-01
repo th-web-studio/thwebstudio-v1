@@ -65,7 +65,7 @@ html, body {
 .section-padding { padding: 120px 0; }
 .premium-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 20px; align-items: start; }
 
-/* 7. NEW TOP CONTACT GRID */
+/* 7. CONTACT GRID & REFINED PHONE STYLE */
 .top-contact-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -73,8 +73,16 @@ html, body {
     margin-bottom: 40px;
 }
 
-.contact-detail-text { font-weight: 700; margin: 10px 0 20px; font-size: 1.1rem; }
-.status-tag { color: var(--blue); font-weight: 900; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; }
+.phone-display-top {
+    font-size: 1.8rem;
+    font-weight: 900;
+    margin: 10px 0 20px;
+    color: #fff; /* Changed from blue to white for a cleaner look */
+    letter-spacing: -0.02em;
+}
+
+.contact-detail-text { font-weight: 700; margin: 10px 0 20px; font-size: 1.1rem; color: #fff; }
+.status-tag { color: var(--blue); font-weight: 900; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; }
 
 /* PREMIUM CONTACT & FORM STYLES */
 .contact-form {
@@ -105,7 +113,6 @@ html, body {
 /* Info Cards & Bubbles */
 .info-card { background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border); padding: 30px; border-radius: 4px; }
 .highlight-card { border-left: 3px solid var(--blue); }
-.phone-display { font-size: 1.8rem; font-weight: 900; margin: 10px 0 20px; }
 
 .card-actions { display: flex; gap: 10px; flex-wrap: wrap; }
 .bubble-btn {
