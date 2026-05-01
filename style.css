@@ -71,42 +71,7 @@ html, body {
 .hero-section h1 { font-size: clamp(2.5rem, 7vw, 5.5rem); line-height: 1.05; font-weight: 900; letter-spacing: -0.04em; margin: 24px 0; }
 .hero-subtext { font-size: 1.2rem; color: #94a3b8; max-width: 600px; line-height: 1.7; margin-bottom: 48px; }
 
-/* REFINED TECH SCROLLER */
-.tech-marquee { 
-    background: rgba(255, 255, 255, 0.02);
-    backdrop-filter: blur(10px);
-    border-top: 1px solid var(--border); 
-    border-bottom: 1px solid var(--border); 
-    padding: 22px 0; 
-    overflow: hidden; 
-    white-space: nowrap;
-    position: relative;
-    mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
-}
-.marquee-content { display: flex; align-items: center; animation: marquee 20s linear infinite; }
-.marquee-content span { font-size: 0.7rem; font-weight: 900; letter-spacing: 2px; color: #94a3b8; padding: 0 40px; text-transform: uppercase; }
-.dot { width: 6px; height: 6px; background-color: var(--blue); display: inline-block; border-radius: 1px; opacity: 0.8; }
-@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-
-/* AUTO SLIDESHOW (Used on Index) */
-.auto-slideshow { 
-    width: 100%; max-width: 850px; aspect-ratio: 16 / 9; 
-    position: relative; overflow: hidden; background: #000; 
-    border: 1px solid var(--border); margin: 30px 0;
-}
-.slide { position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; transition: opacity 1.2s ease-in-out; z-index: 1; }
-.slide.active { opacity: 1; z-index: 2; }
-.slide img { width: 100%; height: 100%; object-fit: contain; display: block; }
-
-/* Studio Sections */
-.studio-section { border-top: 1px solid var(--border); margin-top: -1px; }
-.studio-label { grid-column: 1 / span 3; }
-.section-title { font-size: 0.8rem; color: var(--blue); text-transform: uppercase; letter-spacing: 3px; font-weight: 900; }
-.studio-body { grid-column: 5 / span 8; }
-.studio-body h3 { font-size: clamp(1.8rem, 4vw, 2.8rem); line-height: 1.2; font-weight: 900; margin-bottom: 30px; letter-spacing: -0.02em; }
-.studio-body p { font-size: 1.1rem; color: #94a3b8; line-height: 1.8; max-width: 700px; }
-
-/* 7. PORTFOLIO GALLERY & LIGHTBOX */
+/* 7. PORTFOLIO GALLERY & LIGHTBOX (RE-ENGINEERED) */
 
 .gallery-hint {
     font-size: 0.75rem;
@@ -129,10 +94,11 @@ html, body {
 }
 
 .portfolio-gallery {
-    display: grid;
+    display: grid !important; /* Force grid layout */
     grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-    gap: 25px;
-    margin-top: 20px;
+    gap: 30px;
+    margin-top: 40px;
+    width: 100%;
 }
 
 .gallery-item {
@@ -141,23 +107,26 @@ html, body {
     background: #0a0c10;
     border: 1px solid var(--border);
     cursor: zoom-in;
-    transition: transform 0.3s ease, border-color 0.3s ease;
+    transition: all 0.3s ease;
+    width: 100%; /* Ensures it fills its grid cell */
 }
 
 .gallery-item:hover {
-    transform: translateY(-5px);
+    transform: translateY(-8px);
     border-color: var(--blue);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
 
 .gallery-item img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease;
+    object-fit: cover; /* This is the key to no distortion */
+    display: block;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .gallery-item:hover img {
-    transform: scale(1.05);
+    transform: scale(1.08);
 }
 
 /* Lightbox Components */
@@ -167,7 +136,7 @@ html, body {
     z-index: 3000;
     top: 0; left: 0;
     width: 100%; height: 100%;
-    background-color: rgba(5, 7, 10, 0.95);
+    background-color: rgba(5, 7, 10, 0.98);
     backdrop-filter: blur(15px);
     justify-content: center;
     align-items: center;
@@ -175,40 +144,35 @@ html, body {
 }
 
 .lightbox-img {
-    max-width: 90%;
-    max-height: 75%;
+    max-width: 85%;
+    max-height: 70vh; /* Limits height to prevent "Huge" images */
     object-fit: contain;
     border: 1px solid var(--border);
-    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-    animation: zoomIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    box-shadow: 0 40px 80px rgba(0,0,0,0.8);
+    animation: zoomIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .lightbox-caption {
     position: absolute;
-    bottom: 40px;
+    bottom: 50px;
     left: 50%;
     transform: translateX(-50%);
     color: #fff;
-    background: rgba(10, 12, 16, 0.85);
-    backdrop-filter: blur(5px);
-    padding: 15px 25px;
+    background: rgba(10, 12, 16, 0.9);
+    backdrop-filter: blur(10px);
+    padding: 20px 30px;
     border-radius: 4px;
-    font-size: 0.95rem;
+    font-size: 1rem;
     border: 1px solid var(--border);
-    max-width: 80%;
+    max-width: 800px;
+    width: 90%;
     text-align: center;
-    line-height: 1.5;
-    animation: fadeInUp 0.5s ease 0.1s both;
+    line-height: 1.6;
 }
 
 @keyframes zoomIn {
-    from { transform: scale(0.95); opacity: 0; }
+    from { transform: scale(0.92); opacity: 0; }
     to { transform: scale(1); opacity: 1; }
-}
-
-@keyframes fadeInUp {
-    from { transform: translate(-50%, 20px); opacity: 0; }
-    to { transform: translate(-50%, 0); opacity: 1; }
 }
 
 .close-lightbox {
@@ -216,10 +180,11 @@ html, body {
     top: 30px;
     right: 40px;
     color: #fff;
-    font-size: 50px;
-    font-weight: 200;
+    font-size: 60px;
+    font-weight: 100;
     cursor: pointer;
     line-height: 1;
+    transition: color 0.3s ease;
 }
 
 .close-lightbox:hover { color: var(--blue); }
@@ -228,33 +193,31 @@ html, body {
 .card {
     background: #0a0c10;
     border: 1px solid var(--border);
-    padding: 30px;
+    padding: 40px;
     border-radius: 4px;
 }
 
 .list-style { list-style: none; padding: 0; }
 
 @media (max-width: 992px) {
-    .hero-content, .studio-label, .studio-body { grid-column: 1 / span 12; }
-    .studio-body { margin-top: 40px; }
+    .container { padding: 0 5%; }
     .side-drawer { width: 100%; }
     .section-padding { padding: 80px 0; }
+    .portfolio-gallery { grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); }
 }
 
 @media (max-width: 768px) {
     .portfolio-gallery { 
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr; /* Single column for high impact on mobile */
         gap: 20px; 
     }
-    .lightbox-caption {
-        width: 90%;
-        font-size: 0.85rem;
-        bottom: 20px;
-        padding: 12px;
+    .lightbox-img {
+        max-width: 95%;
+        max-height: 60vh;
     }
-    .close-lightbox { 
-        top: 20px; 
-        right: 25px; 
-        font-size: 40px;
+    .lightbox-caption {
+        font-size: 0.9rem;
+        bottom: 20px;
+        padding: 15px;
     }
 }
