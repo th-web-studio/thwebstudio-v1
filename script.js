@@ -96,16 +96,28 @@ function initSlideshow() {
 }
 
 /* ==========================================
-   NEW: LIGHTBOX LOGIC
+   UPDATED: SMART LIGHTBOX LOGIC
    ========================================== */
-window.openLightbox = function(src) {
+window.openLightbox = function(element) {
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightbox-img');
     
+    // 1. Create or find the caption div
+    let caption = document.getElementById('lightbox-caption');
+    if (!caption) {
+        caption = document.createElement('div');
+        caption.id = 'lightbox-caption';
+        caption.className = 'lightbox-caption';
+        lightbox.appendChild(caption);
+    }
+
     if (lightbox && lightboxImg) {
-        lightboxImg.src = src;
+        // 2. Use the element's source and its data-caption attribute
+        lightboxImg.src = element.src;
+        caption.textContent = element.getAttribute('data-caption') || "";
+        
         lightbox.style.display = 'flex';
-        document.body.style.overflow = 'hidden'; // Prevents page scrolling
+        document.body.style.overflow = 'hidden'; // Stop page scroll
     }
 };
 
@@ -113,7 +125,7 @@ window.closeLightbox = function() {
     const lightbox = document.getElementById('lightbox');
     if (lightbox) {
         lightbox.style.display = 'none';
-        document.body.style.overflow = 'auto'; // Re-enables scrolling
+        document.body.style.overflow = 'auto'; // Restore scroll
     }
 };
 
