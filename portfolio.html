@@ -5,120 +5,113 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio | TH WEB STUDIO</title>
     
+    <!-- Using your perfect Index styles -->
     <link rel="stylesheet" href="style.css"> 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
-
-    <style>
-        /* --- THE GRID ENGINE --- */
-
-        main.container {
-            display: block !important; 
-            width: 90% !important;
-            max-width: 1200px !important;
-            margin: 0 auto !important;
-            padding-top: 100px !important;
-        }
-
-        .portfolio-gallery {
-            display: grid !important;
-            /* Force 3 columns of exactly equal width */
-            grid-template-columns: repeat(3, 1fr) !important; 
-            gap: 15px !important;
-            margin: 40px 0 !important;
-        }
-
-        .gallery-item {
-            width: 100% !important;
-            /* STRICT HEIGHT: This prevents the images from being "too large" */
-            height: 250px !important; 
-            overflow: hidden !important;
-            background: #0f172a;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            cursor: pointer;
-        }
-
-        .gallery-item img {
-            width: 100% !important;
-            height: 100% !important;
-            /* OBJECT-FIT COVER: This is the secret. 
-               It crops the image to fit the 250px box perfectly 
-               without stretching or blowing up the size. */
-            object-fit: cover !important; 
-            display: block !important;
-            transition: transform 0.4s ease;
-        }
-
-        .gallery-item:hover img {
-            transform: scale(1.08);
-        }
-
-        /* --- LIGHTBOX --- */
-        .lightbox-overlay {
-            display: none; 
-            position: fixed; 
-            inset: 0; 
-            z-index: 9999;
-            background: rgba(0, 0, 0, 0.95); 
-            backdrop-filter: blur(10px);
-            justify-content: center; 
-            align-items: center;
-        }
-
-        .lightbox-img { 
-            max-width: 85%; 
-            max-height: 80vh; 
-            object-fit: contain; 
-            border: 1px solid rgba(255,255,255,0.2);
-        }
-
-        /* --- RESPONSIVE --- */
-        @media (max-width: 900px) {
-            .portfolio-gallery { grid-template-columns: repeat(2, 1fr) !important; }
-            .gallery-item { height: 220px !important; }
-        }
-        @media (max-width: 600px) {
-            .portfolio-gallery { grid-template-columns: 1fr !important; }
-            .gallery-item { height: 200px !important; }
-        }
-    </style>
 </head>
 <body>
 
     <div id="nav-placeholder"></div>
 
-    <main class="container">
-        <h2 style="color: #2563eb; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 3px; font-weight: 900; margin-bottom: 10px;">Selected Work</h2>
-        <h1 style="font-weight: 900; margin-bottom: 20px;">Phipps Excavating</h1>
-        
-        <div class="card" style="margin-bottom: 40px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); padding: 30px;">
-            <p style="color: #94a3b8; font-size: 0.95rem; line-height: 1.6; margin: 0;">
-                Professional digital branding and service architecture designed for a rural industry leader.
-            </p>
-        </div>
+    <main>
+        <!-- PORTFOLIO HEADER -->
+        <section class="section-padding container" style="padding-top: 150px;">
+            <div class="premium-grid">
+                <div class="studio-label">
+                    <h2 class="section-title">Selected Work</h2>
+                </div>
+                <div class="studio-body">
+                    <h1 style="font-size: clamp(2.5rem, 5vw, 4rem); line-height: 1.1; font-weight: 900; margin-bottom: 20px;">Digital Solutions <br>Built to <span class="blue-text">Perform.</span></h1>
+                    <p style="max-width: 600px; color: #94a3b8; font-size: 1.1rem; line-height: 1.6;">A look at how we help local industry leaders dominate their digital space with grounded design and custom engineering.</p>
+                </div>
+            </div>
+        </section>
 
-        <div class="portfolio-gallery">
-            <div class="gallery-item"><img src="images/phipps-1.jpg" onclick="openLbox(this)"></div>
-            <div class="gallery-item"><img src="images/phipps-2.jpg" onclick="openLbox(this)"></div>
-            <div class="gallery-item"><img src="images/phipps-3.jpg" onclick="openLbox(this)"></div>
-            <div class="gallery-item"><img src="images/phipps-4.jpg" onclick="openLbox(this)"></div>
-            <div class="gallery-item"><img src="images/phipps-5.jpg" onclick="openLbox(this)"></div>
-            <div class="gallery-item"><img src="images/phipps-6.jpg" onclick="openLbox(this)"></div>
-            <div class="gallery-item"><img src="images/phipps-7.jpg" onclick="openLbox(this)"></div>
-            <div class="gallery-item"><img src="images/phipps-8.jpeg" onclick="openLbox(this)"></div>
-            <div class="gallery-item"><img src="images/phipps-9.jpg" onclick="openLbox(this)"></div>
-        </div>
+        <!-- FEATURED PROJECT: PHIPPS -->
+        <section class="section-padding container" style="border-top: 1px solid rgba(255,255,255,0.05);">
+            <div class="premium-grid">
+                <div class="studio-label">
+                    <h2 class="section-title">01 / Featured</h2>
+                </div>
+                <div class="studio-body">
+                    <!-- EXACT SLIDESHOW FROM INDEX -->
+                    <div class="auto-slideshow">
+                        <div class="slide active"><img src="images/phipps-1.jpg" alt="Phipps 1"></div>
+                        <div class="slide"><img src="images/phipps-2.jpg" alt="Phipps 2"></div>
+                        <div class="slide"><img src="images/phipps-3.jpg" alt="Phipps 3"></div>
+                        <div class="slide"><img src="images/phipps-4.jpg" alt="Phipps 4"></div>
+                        <div class="slide"><img src="images/phipps-5.jpg" alt="Phipps 5"></div>
+                        <div class="slide"><img src="images/phipps-6.jpg" alt="Phipps 6"></div>
+                        <div class="slide"><img src="images/phipps-7.jpg" alt="Phipps 7"></div>
+                        <div class="slide"><img src="images/phipps-8.jpeg" alt="Phipps 8"></div>
+                        <div class="slide"><img src="images/phipps-9.jpg" alt="Phipps 9"></div>
+                    </div>
+                    
+                    <div class="work-details" style="margin-top: 40px;">
+                        <h3 style="font-size: 2rem; margin-bottom: 15px;">Phipps Excavating & Land Management</h3>
+                        <p style="color: #cbd5e1; margin-bottom: 25px;">Developing a professional digital brand that mirrors the authority and reliability of their on-site operations.</p>
+                        
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 25px;">
+                            <div>
+                                <h5 style="color: #2563eb; text-transform: uppercase; font-size: 0.7rem; letter-spacing: 2px; margin-bottom: 10px;">The Challenge</h5>
+                                <p style="font-size: 0.85rem; color: #94a3b8;">Transforming a regional leader's reputation into a high-performance lead generation tool.</p>
+                            </div>
+                            <div>
+                                <h5 style="color: #2563eb; text-transform: uppercase; font-size: 0.7rem; letter-spacing: 2px; margin-bottom: 10px;">The Solution</h5>
+                                <p style="font-size: 0.85rem; color: #94a3b8;">Custom service architecture, drainage line installation design, and mobile-first infrastructure.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- BUSY / COMING SOON SECTION -->
+        <section class="section-padding container" style="border-top: 1px solid rgba(255,255,255,0.05); margin-bottom: 100px;">
+            <div class="premium-grid">
+                <div class="studio-label">
+                    <h2 class="section-title">02 / Future</h2>
+                </div>
+                <div class="studio-body">
+                    <h3 style="font-size: 1.8rem; margin-bottom: 20px;">Currently on Site.</h3>
+                    <p style="max-width: 650px; color: #94a3b8; line-height: 1.6; margin-bottom: 40px;">
+                        We are currently in the development phase for several new local partners. To ensure every build meets our standards for performance and precision, we limit active projects per quarter. 
+                        <br><br>
+                        <strong>Check back soon for new case studies in:</strong>
+                    </p>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                        <div style="padding: 30px; border: 1px solid rgba(255,255,255,0.05); background: rgba(255,255,255,0.02);">
+                            <span style="color: #2563eb; font-weight: 900; font-size: 0.7rem;">BUILD 02</span>
+                            <h5 style="margin-top: 10px;">In Development // Q2 2026</h5>
+                        </div>
+                        <div style="padding: 30px; border: 1px solid rgba(255,255,255,0.05); background: rgba(255,255,255,0.02);">
+                            <span style="color: #2563eb; font-weight: 900; font-size: 0.7rem;">BUILD 03</span>
+                            <h5 style="margin-top: 10px;">Architecture Phase // Q2 2026</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
-    <div id="lbox" class="lightbox-overlay" onclick="this.style.display='none'">
-        <img id="lbox-img" class="lightbox-img" src="">
-    </div>
-
-    <script>
-        function openLbox(el) {
-            document.getElementById('lbox-img').src = el.src;
-            document.getElementById('lbox').style.display = 'flex';
-        }
-    </script>
     <script src="script.js"></script>
+    <script>
+        // Slideshow logic (ensure this is also in your script.js or here)
+        function initSlideshows() {
+            const slideshows = document.querySelectorAll('.auto-slideshow');
+            slideshows.forEach(ss => {
+                const slides = ss.querySelectorAll('.slide');
+                let currentSlide = 0;
+
+                setInterval(() => {
+                    slides[currentSlide].classList.remove('active');
+                    currentSlide = (currentSlide + 1) % slides.length;
+                    slides[currentSlide].classList.add('active');
+                }, 4000);
+            });
+        }
+        initSlideshows();
+    </script>
 </body>
 </html>
