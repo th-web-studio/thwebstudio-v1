@@ -1,35 +1,38 @@
-/* 1. Reset the background to match your Index */
-body {
-    background-color: #05070a !important;
-}
-
-/* 2. FORCE THE GRID (This stops the "listing down" issue) */
+/* 1. THE GRID CONTAINER */
 .portfolio-gallery {
     display: grid !important;
-    grid-template-columns: repeat(3, 1fr) !important; /* Forces 3 columns */
+    /* This forces 3 columns. If it's still stacking, the width of the page is too small or this line is being ignored */
+    grid-template-columns: repeat(3, 1fr) !important;
     gap: 20px !important;
+    width: 100% !important;
     margin: 40px 0 !important;
 }
 
-/* 3. FIX THE PICTURE SIZES */
+/* 2. THE BOX (The "Fence") */
 .gallery-item {
-    aspect-ratio: 3 / 2 !important; /* Keeps them all the same shape */
-    overflow: hidden !important;
+    width: 100% !important;
+    height: 250px !important; /* This locks the height so they can't stack vertically */
+    overflow: hidden !important; /* Anything outside this 250px box is hidden */
+    background: #0a0c10;
     border: 1px solid rgba(255, 255, 255, 0.1);
-    background: #000;
 }
 
+/* 3. THE IMAGE (The "Content") */
 .gallery-item img {
     width: 100% !important;
     height: 100% !important;
-    object-fit: cover !important; /* Prevents images from stretching */
+    /* 'cover' is the most important part: it crops the photo to fit the box 
+       instead of letting the photo push the box open */
+    object-fit: cover !important; 
     display: block !important;
-    cursor: zoom-in;
 }
 
-/* 4. MOBILE VIEW (Stacks them only on phones) */
+/* 4. MOBILE EMERGENCY BRAKE */
 @media (max-width: 768px) {
     .portfolio-gallery {
-        grid-template-columns: 1fr !important;
+        grid-template-columns: 1fr !important; /* Only stacks on small phones */
+    }
+    .gallery-item {
+        height: 200px !important;
     }
 }
