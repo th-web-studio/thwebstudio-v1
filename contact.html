@@ -44,12 +44,9 @@
 
         <div class="premium-grid" style="margin-top: 60px;">
             <div class="studio-body" style="grid-column: 1 / span 12;">
-                <!-- LIVE FORMSPREE ENDPOINT INTEGRATED BELOW -->
+                <!-- JAVASCRIPT REDIRECT INTEGRATED -->
                 <form action="https://formspree.io/f/xwvajwwn" method="POST" class="contact-form" id="project-form">
                     
-                    <!-- Redirects to your custom Cloudflare thank you page - .html added to trigger verification -->
-                    <input type="hidden" name="_next" value="https://thwebstudio-v1.pages.dev/thanks.html">
-
                     <div class="form-header-premium">
                         <h3 class="blue-text">Project Inquiry</h3>
                         <div class="header-line"></div>
@@ -77,7 +74,7 @@
                         <textarea name="message" rows="6" placeholder="Tell us about your project goals, timeline, or specific needs..."></textarea>
                     </div>
 
-                    <button type="submit" class="nav-cta-button" style="width: 100%; border: none; cursor: pointer;">
+                    <button type="submit" id="submit-btn" class="nav-cta-button" style="width: 100%; border: none; cursor: pointer;">
                         Submit Project Request
                     </button>
                 </form>
@@ -86,5 +83,40 @@
     </main>
 
     <script src="script.js"></script>
+
+    <!-- NEW REDIRECT SCRIPT -->
+    <script>
+      const form = document.getElementById("project-form");
+      const button = document.getElementById("submit-btn");
+
+      form.addEventListener("submit", async function(event) {
+        event.preventDefault();
+        button.innerText = "Sending...";
+        button.disabled = true;
+
+        const data = new FormData(event.target);
+        
+        fetch(event.target.action, {
+          method: 'POST',
+          body: data,
+          headers: {
+            'Accept': 'application/json'
+          }
+        }).then(response => {
+          if (response.ok) {
+            // Success: Force redirect to your solid thank you page
+            window.location.href = "https://thwebstudio-v1.pages.dev/thanks.html";
+          } else {
+            button.innerText = "Error - Try Again";
+            button.disabled = false;
+            alert("There was a problem. Please try again or email us directly.");
+          }
+        }).catch(error => {
+          button.innerText = "Error - Try Again";
+          button.disabled = false;
+          alert("Network error. Please check your connection.");
+        });
+      });
+    </script>
 </body>
 </html>
