@@ -5,13 +5,59 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio | TH WEB STUDIO</title>
     
-    <!-- Link 1: Your perfect Index styles (Nav/Fonts) -->
     <link rel="stylesheet" href="style.css"> 
-    
-    <!-- Link 2: The "Firewall" styles (Grid ONLY) -->
-    <link rel="stylesheet" href="portfolio.css">
-    
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+
+    <style>
+        /* 1. THE GRID (The Layout) */
+        .portfolio-gallery {
+            display: grid !important;
+            grid-template-columns: repeat(3, 1fr) !important;
+            gap: 20px !important;
+            margin: 50px 0 !important;
+            width: 100% !important;
+        }
+
+        /* 2. THE BOX (The Frame) */
+        .gallery-item {
+            width: 100% !important;
+            aspect-ratio: 3 / 2 !important; /* Forces all boxes to be the same shape */
+            overflow: hidden !important;
+            background: #0a0c10;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            cursor: pointer;
+        }
+
+        /* 3. THE IMAGE (The Content) */
+        .gallery-item img {
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: cover !important; /* Crops image to fit box perfectly */
+            display: block !important;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        /* 4. LIGHTBOX (The Pop-up) */
+        .lightbox-overlay {
+            display: none; position: fixed; inset: 0; z-index: 3000;
+            background: rgba(0,0,0,0.95); backdrop-filter: blur(10px);
+            justify-content: center; align-items: center;
+        }
+        .lightbox-img { max-width: 85%; max-height: 75vh; object-fit: contain; border: 1px solid rgba(255,255,255,0.2); }
+        .close-lightbox { position: absolute; top: 20px; right: 30px; color: #fff; font-size: 50px; cursor: pointer; }
+
+        /* 5. MOBILE FIX */
+        @media (max-width: 992px) {
+            .portfolio-gallery { grid-template-columns: repeat(2, 1fr) !important; }
+        }
+        @media (max-width: 600px) {
+            .portfolio-gallery { grid-template-columns: 1fr !important; }
+        }
+    </style>
 </head>
 <body>
 
@@ -32,25 +78,24 @@
             </ul>
         </div>
 
-        <p class="gallery-hint">Click any image to view project details</p>
+        <p class="gallery-hint" style="color: #2563eb; font-weight: 900; text-transform: uppercase; letter-spacing: 2px; font-size: 0.7rem; margin-bottom: 20px;">Click any image to view details</p>
 
         <div class="portfolio-gallery">
-            <div class="gallery-item"><img src="images/phipps-1.jpg" data-caption="Professional branding applied to fleet vehicles." onclick="openLightbox(this)"></div>
-            <div class="gallery-item"><img src="images/phipps-2.jpg" data-caption="Precision site clearing and leveling." onclick="openLightbox(this)"></div>
-            <div class="gallery-item"><img src="images/phipps-3.jpg" data-caption="Heavy equipment operation." onclick="openLightbox(this)"></div>
-            <div class="gallery-item"><img src="images/phipps-4.jpg" data-caption="Custom drainage line installation." onclick="openLightbox(this)"></div>
-            <div class="gallery-item"><img src="images/phipps-5.jpg" data-caption="Completed land management project." onclick="openLightbox(this)"></div>
-            <div class="gallery-item"><img src="images/phipps-6.jpg" data-caption="Specialized equipment for precision work." onclick="openLightbox(this)"></div>
-            <div class="gallery-item"><img src="images/phipps-7.jpg" data-caption="Site assessment and planning." onclick="openLightbox(this)"></div>
-            <div class="gallery-item"><img src="images/phipps-8.jpeg" data-caption="Large-scale pond construction." onclick="openLightbox(this)"></div>
-            <div class="gallery-item"><img src="images/phipps-9.jpg" data-caption="Final site grading." onclick="openLightbox(this)"></div>
+            <div class="gallery-item"><img src="images/phipps-1.jpg" onclick="openLightbox(this)"></div>
+            <div class="gallery-item"><img src="images/phipps-2.jpg" onclick="openLightbox(this)"></div>
+            <div class="gallery-item"><img src="images/phipps-3.jpg" onclick="openLightbox(this)"></div>
+            <div class="gallery-item"><img src="images/phipps-4.jpg" onclick="openLightbox(this)"></div>
+            <div class="gallery-item"><img src="images/phipps-5.jpg" onclick="openLightbox(this)"></div>
+            <div class="gallery-item"><img src="images/phipps-6.jpg" onclick="openLightbox(this)"></div>
+            <div class="gallery-item"><img src="images/phipps-7.jpg" onclick="openLightbox(this)"></div>
+            <div class="gallery-item"><img src="images/phipps-8.jpeg" onclick="openLightbox(this)"></div>
+            <div class="gallery-item"><img src="images/phipps-9.jpg" onclick="openLightbox(this)"></div>
         </div>
     </main>
 
     <div id="lightbox" class="lightbox-overlay" onclick="closeLightbox()">
         <span class="close-lightbox">&times;</span>
         <img id="lightbox-img" class="lightbox-img" src="" alt="Enlarged view">
-        <div id="lightbox-caption" class="lightbox-caption"></div>
     </div>
 
     <footer>
