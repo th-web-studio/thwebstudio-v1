@@ -1,37 +1,81 @@
 const navHTML = `
-    <!-- INLINE STYLES TO OVERRIDE THE GREY SQUARE -->
     <style>
+        /* Container for the Logo and Tagline */
+        .brand-stack {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-decoration: none;
+        }
+
+        .brand {
+            line-height: 1;
+            margin-bottom: 4px;
+            display: block;
+        }
+
+        .nav-tagline {
+            font-size: 0.7rem;
+            color: rgba(255, 255, 255, 0.7);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 400;
+            margin: 0;
+        }
+
+        /* Anchored Menu Button Styles */
+        .menu-btn-container {
+            border-left: 1px solid rgba(255, 255, 255, 0.2);
+            padding-left: 20px;
+            display: flex;
+            align-items: center;
+        }
+
         .menu-btn {
             background: transparent !important;
-            border: none !important;
-            padding: 5px !important;
+            border: 1px solid rgba(255, 255, 255, 0.5) !important;
+            border-radius: 4px;
             cursor: pointer;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
-            width: 35px;
-            height: 24px;
-            outline: none;
-            box-shadow: none !important;
+            justify-content: center;
+            gap: 5px;
+            width: 45px;
+            height: 40px;
+            padding: 0 10px !important;
         }
+
         .hamburger-line {
             display: block;
-            width: 100%;
-            height: 4px; /* Bold for high visibility */
-            background-color: #ffffff !important; /* Forces white color */
-            border-radius: 2px;
+            height: 2px;
+            background-color: #ffffff !important;
+        }
+        
+        .line-1 { width: 100%; }
+        .line-2 { width: 70%; }
+        .line-3 { width: 100%; }
+
+        /* Mobile adjustment to keep the nav bar clean */
+        @media (max-width: 480px) {
+            .nav-tagline { font-size: 0.6rem; }
         }
     </style>
 
     <nav class="top-bar">
         <div class="nav-container">
-            <a href="index.html" class="brand">TH WEB <span class="accent">STUDIO</span></a>
+            <!-- Brand + Tagline Stack -->
+            <a href="index.html" class="brand-stack">
+                <span class="brand">TH WEB <span class="accent">STUDIO</span></span>
+                <p class="nav-tagline">We build websites that grow business</p>
+            </a>
             
-            <button class="menu-btn" id="menu-btn" aria-label="Open Menu">
-                <span class="hamburger-line"></span>
-                <span class="hamburger-line"></span>
-                <span class="hamburger-line"></span>
-            </button>
+            <div class="menu-btn-container">
+                <button class="menu-btn" id="menu-btn">
+                    <span class="hamburger-line line-1"></span>
+                    <span class="hamburger-line line-2"></span>
+                    <span class="hamburger-line line-3"></span>
+                </button>
+            </div>
         </div>
     </nav>
 
