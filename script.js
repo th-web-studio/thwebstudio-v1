@@ -176,3 +176,28 @@ if (document.readyState === 'loading') {
 } else {
     initApp();
 }
+
+// This selector ensures the code ONLY looks for the 'phone' input field
+const phoneInput = document.querySelector('input[name="phone"]');
+
+if (phoneInput) {
+    phoneInput.addEventListener('input', (e) => {
+        // 1. Remove all non-numeric characters
+        let input = e.target.value.replace(/\D/g, '');
+        
+        // 2. Limit the input to 10 digits total
+        input = input.substring(0, 10);
+        
+        // 3. Apply the (000) 000-0000 format dynamically
+        let size = input.length;
+        if (size === 0) {
+            e.target.value = '';
+        } else if (size < 4) {
+            e.target.value = '(' + input;
+        } else if (size < 7) {
+            e.target.value = '(' + input.substring(0, 3) + ') ' + input.substring(3, 6);
+        } else {
+            e.target.value = '(' + input.substring(0, 3) + ') ' + input.substring(3, 6) + '-' + input.substring(6, 10);
+        }
+    });
+}
