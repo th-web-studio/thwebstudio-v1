@@ -1,3 +1,4 @@
+/* 1. NAVIGATION COMPONENT */
 const navHTML = `
     <nav class="top-bar">
         <div class="nav-container">
@@ -82,8 +83,34 @@ function initNavigationLogic() {
     });
 }
 
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', injectNavigation);
-} else {
+/* 2. AUTO-SLIDESHOW LOGIC */
+function initSlideshow() {
+    const slides = document.querySelectorAll('.auto-slideshow .slide');
+    let currentIndex = 0;
+
+    // Only run if slides exist on the current page
+    if (slides.length > 0) {
+        setInterval(() => {
+            // Remove active from current
+            slides[currentIndex].classList.remove('active');
+            
+            // Move to next (loop back to 0 at end)
+            currentIndex = (currentIndex + 1) % slides.length;
+            
+            // Add active to next
+            slides[currentIndex].classList.add('active');
+        }, 4000); // 4 Seconds
+    }
+}
+
+/* 3. INITIALIZATION */
+function initApp() {
     injectNavigation();
+    initSlideshow();
+}
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initApp);
+} else {
+    initApp();
 }
