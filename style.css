@@ -104,10 +104,37 @@ html, body {
 .studio-body h3 { font-size: clamp(1.8rem, 4vw, 2.8rem); line-height: 1.2; font-weight: 900; margin-bottom: 30px; letter-spacing: -0.02em; }
 .studio-body p { font-size: 1.1rem; color: #94a3b8; line-height: 1.8; max-width: 700px; }
 
-/* Featured Work Card */
-.work-image-window { width: 100%; height: 500px; background: #0a0c10; border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; transition: 0.5s ease; cursor: pointer; }
+/* Featured Work Card & Grid Constraints */
+.work-grid { 
+    display: grid; 
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 15px; 
+    margin-bottom: 30px;
+}
+
+.work-image-window { 
+    width: 100%; 
+    height: 300px; /* Constrained height to stop massive image overflow */
+    background: #0a0c10; 
+    border: 1px solid var(--border); 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    transition: 0.5s ease; 
+    cursor: pointer; 
+    overflow: hidden; /* Ensures image stays inside the box */
+}
+
+.featured-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Forces high-res photos to fill the square without stretching */
+    display: block;
+}
+
 .work-image-window:hover { border-color: var(--blue); }
-.placeholder-img { font-size: 0.7rem; color: #374151; letter-spacing: 2px; text-transform: uppercase; font-weight: 900; }
+.work-image-window:hover .featured-img { transform: scale(1.05); }
+
 .work-details h4 { font-size: 1.5rem; margin: 25px 0 10px; font-weight: 900; }
 
 /* Blueprint Process */
@@ -135,4 +162,10 @@ html, body {
     .studio-body { margin-top: 40px; }
     .side-drawer { width: 100%; }
     .section-padding { padding: 80px 0; }
+    .work-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 600px) {
+    .work-grid { grid-template-columns: 1fr; }
+    .work-image-window { height: 250px; }
 }
