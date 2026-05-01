@@ -1,49 +1,23 @@
-/* 1. RESET THE CONTAINER */
-/* This forces the page to stop treating items like a vertical list */
-main.container {
-    display: block !important;
-    width: 90% !important;
-    max-width: 1200px !important;
-    margin: 0 auto !important;
-}
+<!-- 1. The Container (Reset to display: block) -->
+<main class="container">
 
-/* 2. THE GRID */
-.portfolio-gallery {
-    display: grid !important;
-    /* This creates 3 equal columns */
-    grid-template-columns: repeat(3, 1fr) !important; 
-    gap: 15px !important;
-    margin: 40px 0 !important;
-    width: 100% !important;
-}
+    <!-- 2. The Grid (The Parent) -->
+    <div class="portfolio-gallery">
 
-/* 3. THE BOX (Stops images from being "too large") */
-.gallery-item {
-    width: 100% !important;
-    height: 250px !important; /* This locks the height */
-    overflow: hidden !important;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    background: #000;
-}
+        <!-- 3. The Box (The Child) -->
+        <div class="gallery-item">
+            <img src="images/phipps-1.jpg" onclick="openLbox(this)">
+        </div>
 
-/* 4. THE IMAGE */
-.gallery-item img {
-    width: 100% !important;
-    height: 100% !important;
-    /* This crops the photo so it fits the box perfectly */
-    object-fit: cover !important; 
-    display: block !important;
-}
+        <div class="gallery-item">
+            <img src="images/phipps-2.jpg" onclick="openLbox(this)">
+        </div>
 
-/* 5. MOBILE VIEW */
-@media (max-width: 800px) {
-    .portfolio-gallery {
-        grid-template-columns: 1fr 1fr !important; /* 2 columns on tablets */
-    }
-}
+        <div class="gallery-item">
+            <img src="images/phipps-3.jpg" onclick="openLbox(this)">
+        </div>
 
-@media (max-width: 500px) {
-    .portfolio-gallery {
-        grid-template-columns: 1fr !important; /* 1 column on phones */
-    }
-}
+        <!-- Add more gallery-items here... -->
+
+    </div>
+</main>
