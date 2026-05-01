@@ -60,7 +60,7 @@ html, body {
 }
 .nav-cta-button:hover { background-color: #1d4ed8; transform: translateY(-2px); }
 
-/* 6. LAYOUT ENGINE (12-Column Grid) */
+/* 6. LAYOUT ENGINE */
 .container { max-width: 1300px; margin: 0 auto; padding: 0 6%; width: 100%; }
 .section-padding { padding: 120px 0; }
 .premium-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 20px; align-items: start; }
@@ -71,7 +71,7 @@ html, body {
 .hero-section h1 { font-size: clamp(2.5rem, 7vw, 5.5rem); line-height: 1.05; font-weight: 900; letter-spacing: -0.04em; margin: 24px 0; }
 .hero-subtext { font-size: 1.2rem; color: #94a3b8; max-width: 600px; line-height: 1.7; margin-bottom: 48px; }
 
-/* REFINED TECH SCROLLER (Snappy & Transparent) */
+/* REFINED TECH SCROLLER */
 .tech-marquee { 
     background: rgba(255, 255, 255, 0.02);
     backdrop-filter: blur(10px);
@@ -83,17 +83,10 @@ html, body {
     white-space: nowrap;
     position: relative;
     mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
-    -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
 }
 .marquee-content { display: flex; align-items: center; animation: marquee 20s linear infinite; }
 .marquee-content span { font-size: 0.7rem; font-weight: 900; letter-spacing: 2px; color: #94a3b8; padding: 0 40px; text-transform: uppercase; }
-
-/* The Blue Geometric Dot Divider */
-.dot {
-    width: 6px; height: 6px; background-color: var(--blue);
-    display: inline-block; border-radius: 1px; opacity: 0.8;
-}
-
+.dot { width: 6px; height: 6px; background-color: var(--blue); display: inline-block; border-radius: 1px; opacity: 0.8; }
 @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
 /* Sections */
@@ -104,38 +97,36 @@ html, body {
 .studio-body h3 { font-size: clamp(1.8rem, 4vw, 2.8rem); line-height: 1.2; font-weight: 900; margin-bottom: 30px; letter-spacing: -0.02em; }
 .studio-body p { font-size: 1.1rem; color: #94a3b8; line-height: 1.8; max-width: 700px; }
 
-/* Featured Work Card & Grid Constraints */
+/* FEATURED WORK GRID - COMPACT FIX */
 .work-grid { 
     display: grid; 
     grid-template-columns: repeat(3, 1fr); 
-    gap: 15px; 
-    margin-bottom: 30px;
+    gap: 10px; 
+    max-width: 750px; /* Limits the horizontal spread */
+    margin-bottom: 25px;
 }
 
 .work-image-window { 
     width: 100%; 
-    height: 300px; /* Constrained height to stop massive image overflow */
+    height: 160px; /* Strictly caps the vertical height */
     background: #0a0c10; 
     border: 1px solid var(--border); 
-    display: flex; 
-    align-items: center; 
-    justify-content: center; 
-    transition: 0.5s ease; 
-    cursor: pointer; 
-    overflow: hidden; /* Ensures image stays inside the box */
+    overflow: hidden; 
+    position: relative;
 }
 
 .featured-img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Forces high-res photos to fill the square without stretching */
+    object-fit: cover; /* Prevents distortion */
     display: block;
+    opacity: 0.8;
+    transition: 0.3s ease;
 }
 
-.work-image-window:hover { border-color: var(--blue); }
-.work-image-window:hover .featured-img { transform: scale(1.05); }
+.work-image-window:hover .featured-img { opacity: 1; transform: scale(1.05); }
 
-.work-details h4 { font-size: 1.5rem; margin: 25px 0 10px; font-weight: 900; }
+.work-details h4 { font-size: 1.2rem; margin: 20px 0 8px; font-weight: 900; }
 
 /* Blueprint Process */
 .process-list { display: flex; flex-direction: column; gap: 60px; }
@@ -148,7 +139,7 @@ html, body {
 .cta-card h2 { font-size: clamp(2rem, 5vw, 3.5rem); margin-bottom: 20px; font-weight: 900; }
 .cta-card p { color: #94a3b8; margin-bottom: 40px; font-size: 1.2rem; }
 
-/* Menu Controls */
+/* Menu Controls & Colors */
 .overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); opacity: 0; pointer-events: none; transition: 0.4s; z-index: 1500; }
 .overlay.active { opacity: 1; pointer-events: auto; }
 .menu-btn { width: 45px; height: 45px; background: none; border: 1px solid var(--border); cursor: pointer; display: flex; flex-direction: column; align-items: flex-end; justify-content: center; padding-right: 10px; }
@@ -162,10 +153,5 @@ html, body {
     .studio-body { margin-top: 40px; }
     .side-drawer { width: 100%; }
     .section-padding { padding: 80px 0; }
-    .work-grid { grid-template-columns: repeat(2, 1fr); }
-}
-
-@media (max-width: 600px) {
-    .work-grid { grid-template-columns: 1fr; }
-    .work-image-window { height: 250px; }
+    .work-grid { grid-template-columns: repeat(2, 1fr); max-width: 100%; }
 }
