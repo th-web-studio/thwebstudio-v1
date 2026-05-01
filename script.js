@@ -1,7 +1,7 @@
 const navHTML = `
     <nav class="top-bar">
         <div class="nav-container">
-            <div class="brand-group">
+            <div class="brand-wrapper">
                 <a href="index.html" class="brand">TH WEB <span class="accent">STUDIO</span></a>
                 <span class="nav-tagline">We build websites that grow business</span>
             </div>
