@@ -55,7 +55,7 @@ const navHTML = `
         .line-2 { width: 70%; }
         .line-3 { width: 100%; }
 
-        /* Mobile adjustment to keep the nav bar clean */
+        /* Mobile adjustment */
         @media (max-width: 480px) {
             .nav-tagline { font-size: 0.6rem; }
         }
@@ -63,10 +63,10 @@ const navHTML = `
 
     <nav class="top-bar">
         <div class="nav-container">
-            <!-- Brand + Tagline Stack -->
             <a href="index.html" class="brand-stack">
                 <span class="brand">TH WEB <span class="accent">STUDIO</span></span>
-                <p class="nav-tagline">We build websites that grow business</p>
+                <!-- TAGLINE IN NAV BAR -->
+                <p class="nav-tagline">We build websites that grow businesses</p>
             </a>
             
             <div class="menu-btn-container">
@@ -86,7 +86,8 @@ const navHTML = `
         <div class="drawer-content">
             <div class="drawer-brand">
                 TH WEB <span class="accent">STUDIO</span>
-                <p class="drawer-tagline">We build websites that grow business</p>
+                <!-- UPDATED TAGLINE IN DRAWER -->
+                <p class="drawer-tagline">We build websites that grow businesses</p>
             </div>
             
             <ul class="nav-list">
