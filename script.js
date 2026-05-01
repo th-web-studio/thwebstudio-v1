@@ -1,7 +1,10 @@
 const navHTML = `
     <nav class="top-bar">
         <div class="nav-container">
-            <a href="index.html" class="brand">TH WEB <span class="accent">STUDIO</span></a>
+            <div class="brand-group">
+                <a href="index.html" class="brand">TH WEB <span class="accent">STUDIO</span></a>
+                <span class="nav-tagline">We build websites that grow business</span>
+            </div>
             <button class="menu-btn" id="menu-btn">
                 <div class="btn-line"></div>
                 <div class="btn-line short"></div>
@@ -16,7 +19,7 @@ const navHTML = `
         <div class="drawer-content">
             <div class="drawer-brand">
                 TH WEB <span class="accent">STUDIO</span>
-                <p class="drawer-tagline">Solid Design & Engineering</p>
+                <p class="drawer-tagline">We build websites that grow business</p>
             </div>
             
             <ul class="nav-list">
