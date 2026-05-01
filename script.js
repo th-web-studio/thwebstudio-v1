@@ -1,9 +1,32 @@
 const navHTML = `
+    <!-- INLINE STYLES TO OVERRIDE THE GREY SQUARE -->
+    <style>
+        .menu-btn {
+            background: transparent !important;
+            border: none !important;
+            padding: 5px !important;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 35px;
+            height: 24px;
+            outline: none;
+            box-shadow: none !important;
+        }
+        .hamburger-line {
+            display: block;
+            width: 100%;
+            height: 4px; /* Bold for high visibility */
+            background-color: #ffffff !important; /* Forces white color */
+            border-radius: 2px;
+        }
+    </style>
+
     <nav class="top-bar">
         <div class="nav-container">
             <a href="index.html" class="brand">TH WEB <span class="accent">STUDIO</span></a>
             
-            <!-- NEW ICON STRUCTURE ONLY -->
             <button class="menu-btn" id="menu-btn" aria-label="Open Menu">
                 <span class="hamburger-line"></span>
                 <span class="hamburger-line"></span>
