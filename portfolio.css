@@ -1,59 +1,35 @@
+/* 1. Reset the background to match your Index */
 body {
-    border: 10px solid red !important;
+    background-color: #05070a !important;
 }
 
-/* This file ONLY touches the Portfolio Grid */
-
+/* 2. FORCE THE GRID (This stops the "listing down" issue) */
 .portfolio-gallery {
     display: grid !important;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 25px;
-    margin-top: 50px;
-    width: 100%;
+    grid-template-columns: repeat(3, 1fr) !important; /* Forces 3 columns */
+    gap: 20px !important;
+    margin: 40px 0 !important;
 }
 
+/* 3. FIX THE PICTURE SIZES */
 .gallery-item {
-    aspect-ratio: 3 / 2;
-    overflow: hidden;
-    background: #0a0c10;
+    aspect-ratio: 3 / 2 !important; /* Keeps them all the same shape */
+    overflow: hidden !important;
     border: 1px solid rgba(255, 255, 255, 0.1);
-    cursor: pointer;
+    background: #000;
 }
 
 .gallery-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    transition: transform 0.3s ease;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important; /* Prevents images from stretching */
+    display: block !important;
+    cursor: zoom-in;
 }
 
-.gallery-item:hover img {
-    transform: scale(1.05);
-}
-
-/* Lightbox Specific Styles */
-.lightbox-overlay {
-    display: none;
-    position: fixed;
-    inset: 0;
-    z-index: 3000;
-    background: rgba(0, 0, 0, 0.95);
-    backdrop-filter: blur(10px);
-    justify-content: center;
-    align-items: center;
-}
-
-.lightbox-img {
-    max-width: 85%;
-    max-height: 75vh;
-    object-fit: contain;
-}
-
-@media (max-width: 992px) {
-    .portfolio-gallery { grid-template-columns: repeat(2, 1fr); }
-}
-
+/* 4. MOBILE VIEW (Stacks them only on phones) */
 @media (max-width: 768px) {
-    .portfolio-gallery { grid-template-columns: 1fr; }
+    .portfolio-gallery {
+        grid-template-columns: 1fr !important;
+    }
 }
