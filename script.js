@@ -95,6 +95,28 @@ function initSlideshow() {
     }
 }
 
+/* ==========================================
+   NEW: LIGHTBOX LOGIC
+   ========================================== */
+window.openLightbox = function(src) {
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    
+    if (lightbox && lightboxImg) {
+        lightboxImg.src = src;
+        lightbox.style.display = 'flex';
+        document.body.style.overflow = 'hidden'; // Prevents page scrolling
+    }
+};
+
+window.closeLightbox = function() {
+    const lightbox = document.getElementById('lightbox');
+    if (lightbox) {
+        lightbox.style.display = 'none';
+        document.body.style.overflow = 'auto'; // Re-enables scrolling
+    }
+};
+
 function initApp() {
     injectNavigation();
     initSlideshow();
