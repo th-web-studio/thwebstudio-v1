@@ -12,11 +12,12 @@ const navHTML = `
             line-height: 1;
             margin-bottom: 4px;
             display: block;
+            color: #0f172a; /* Deep Slate Logo */
         }
 
         .nav-tagline {
             font-size: 0.7rem;
-            color: rgba(255, 255, 255, 0.7);
+            color: #64748b; /* Muted Slate Tagline for readability */
             text-transform: uppercase;
             letter-spacing: 1px;
             font-weight: 400;
@@ -25,7 +26,7 @@ const navHTML = `
 
         /* Anchored Menu Button Styles */
         .menu-btn-container {
-            border-left: 1px solid rgba(255, 255, 255, 0.2);
+            border-left: 1px solid rgba(15, 23, 42, 0.1); /* Soft Slate Border */
             padding-left: 20px;
             display: flex;
             align-items: center;
@@ -33,7 +34,7 @@ const navHTML = `
 
         .menu-btn {
             background: transparent !important;
-            border: 1px solid rgba(255, 255, 255, 0.5) !important;
+            border: 1px solid rgba(15, 23, 42, 0.2) !important; /* Visible Border */
             border-radius: 4px;
             cursor: pointer;
             display: flex;
@@ -48,7 +49,7 @@ const navHTML = `
         .hamburger-line {
             display: block;
             height: 2px;
-            background-color: #ffffff !important;
+            background-color: #0f172a !important; /* Deep Slate Lines */
         }
         
         .line-1 { width: 100%; }
@@ -81,13 +82,13 @@ const navHTML = `
 
     <div class="side-drawer" id="side-drawer">
         <div class="drawer-header">
-            <button class="close-btn" id="close-btn">&times;</button>
+            <button class="close-btn" id="close-btn" style="color: #0f172a;">&times;</button>
         </div>
         <div class="drawer-content">
-            <div class="drawer-brand">
+            <div class="drawer-brand" style="color: #0f172a; border-bottom: 1px solid rgba(15, 23, 42, 0.1);">
                 TH WEB <span class="accent">STUDIO</span>
                 <!-- UPDATED TAGLINE IN DRAWER -->
-                <p class="drawer-tagline">We build websites that grow businesses</p>
+                <p class="drawer-tagline" style="color: #64748b;">We build websites that grow businesses</p>
             </div>
             
             <ul class="nav-list">
@@ -177,18 +178,13 @@ if (document.readyState === 'loading') {
     initApp();
 }
 
-// This selector ensures the code ONLY looks for the 'phone' input field
+// Selector for the phone input field
 const phoneInput = document.querySelector('input[name="phone"]');
 
 if (phoneInput) {
     phoneInput.addEventListener('input', (e) => {
-        // 1. Remove all non-numeric characters
         let input = e.target.value.replace(/\D/g, '');
-        
-        // 2. Limit the input to 10 digits total
         input = input.substring(0, 10);
-        
-        // 3. Apply the (000) 000-0000 format dynamically
         let size = input.length;
         if (size === 0) {
             e.target.value = '';
