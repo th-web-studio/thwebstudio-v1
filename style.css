@@ -4,9 +4,10 @@
    Guiding Principle: Speed, Security, and Absolute Precision.
 */
 
-/* 0. UNIVERSAL FONT ENGINE - LOCKS ACROSS ALL PAGES */
+/* 0. UNIVERSAL FONT ENGINE */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
 
+/* Apply font globally without breaking layout properties */
 * { 
     box-sizing: border-box; 
     font-family: 'Inter', sans-serif !important; 
@@ -24,13 +25,13 @@ html, body {
 
 :root {
     --bg: #f8fafc;
-    --blue: #2e72ff; /* Electric Blue */
+    --blue: #2e72ff; 
     --border: rgba(15, 23, 42, 0.1);
     --white-highlight: #ffffff; 
     --text-muted: #64748b;
 }
 
-/* TYPOGRAPHY OVERRIDE - STOPS "FLAT" LOOK */
+/* TYPOGRAPHY OVERRIDE */
 h1, h2, h3, h4, h5 {
     color: #0f172a !important;
     font-weight: 900 !important;
@@ -59,97 +60,57 @@ p, span, li {
 .brand { text-decoration: none; font-weight: 900; color: #0f172a; text-transform: uppercase; letter-spacing: 1px; }
 .accent { color: var(--blue); }
 
-/* 3. DRAWER & OVERLAY */
+/* 3. MENU & DRAWER */
 .side-drawer {
     position: fixed; top: 0; right: -100%; width: 400px; height: 100%;
     background: #ffffff; z-index: 2000; transition: 0.5s ease;
     padding: 40px; border-left: 1px solid var(--border);
 }
 .side-drawer.open { right: 0; }
-.drawer-header { display: flex; justify-content: flex-end; width: 100%; margin-bottom: 20px; }
 .close-btn { background: none; border: none; color: #0f172a; font-size: 3.5rem; cursor: pointer; line-height: 0.5; padding: 10px; }
 
-/* 4. MENU LINKS */
-.drawer-brand { color: #0f172a; margin-bottom: 40px; font-weight: 900; font-size: 1.5rem; letter-spacing: 1px; border-bottom: 1px solid var(--border); padding-bottom: 20px; }
-.drawer-tagline { font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 2px; margin-top: 5px; font-weight: 400; }
-.nav-list { list-style: none; padding: 0; margin: 0; }
-.nav-list li { margin-bottom: 25px; padding: 0; }
-.main-link, .dropdown-btn { text-decoration: none; color: #0f172a; font-size: 1.1rem; font-weight: 900; background: none; border: none; width: 100%; text-align: left; display: flex; justify-content: space-between; cursor: pointer; padding: 0; }
-.sub-menu { list-style: none; padding-left: 20px; margin-top: 15px; display: none; border-left: 1px solid var(--blue); }
-.sub-menu.show { display: block; }
-.sub-menu a { text-decoration: none; color: var(--text-muted); font-size: 0.9rem; display: block; margin-bottom: 10px; }
-
-/* 5. BLUE CTA BUTTON */
+/* 4. PRIMARY BUTTONS */
 .nav-cta-button {
     display: inline-block; background-color: var(--blue); color: #ffffff !important;
     text-align: center; padding: 16px 32px; border-radius: 4px;
     font-weight: 900; text-decoration: none; text-transform: uppercase;
-    letter-spacing: 1px; transition: 0.3s ease;
+    letter-spacing: 1px; transition: 0.3s ease; border: none;
 }
 .nav-cta-button:hover { background-color: #1d4ed8; transform: translateY(-2px); }
+
+/* 5. HERO SECTION & MOCKUP */
+.hero-section { min-height: 90vh; display: flex; align-items: center; padding-top: 85px; }
+.hero-content { grid-column: 1 / span 6; }
+.hero-visual { grid-column: 7 / span 6; display: flex; justify-content: flex-end; perspective: 1000px; }
+
+.mockup-container {
+    width: 100%; max-width: 580px; 
+    border-radius: 12px !important; /* Restores rounded corners */
+    overflow: hidden; /* Clips image to the radius */
+    box-shadow: 0 30px 60px rgba(15, 23, 42, 0.12);
+    border: 1px solid var(--border);
+    transform: rotateY(-6deg) rotateX(2deg);
+    transition: transform 0.5s ease;
+}
+.mockup-container img { width: 100%; height: auto; display: block; border-radius: 12px; }
 
 /* 6. LAYOUT ENGINE */
 .container { max-width: 1300px; margin: 0 auto; padding: 0 6%; width: 100%; }
 .section-padding { padding: 120px 0; }
 .premium-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 20px; align-items: center; }
 
-/* 7. HERO SECTION (SPLIT LAYOUT) */
-.hero-section { min-height: 90vh; display: flex; align-items: center; padding-top: 85px; }
-.hero-content { grid-column: 1 / span 6; }
-.hero-section h1 { font-size: clamp(2.5rem, 5vw, 4.5rem); }
-.hero-subtext { font-size: 1.1rem; color: #64748b; max-width: 540px; line-height: 1.7; margin-bottom: 48px; }
-
-.hero-visual {
-    grid-column: 7 / span 6;
-    display: flex;
-    justify-content: flex-end;
-    perspective: 1000px;
-}
-
-.mockup-container {
-    width: 100%; max-width: 580px; border-radius: 12px; overflow: hidden;
-    box-shadow: 0 30px 60px rgba(15, 23, 42, 0.12);
-    border: 1px solid var(--border);
-    transform: rotateY(-6deg) rotateX(2deg);
-    transition: transform 0.5s ease;
-}
-.mockup-container img { width: 100%; height: auto; display: block; }
-
-/* 8. TECH SCROLLER */
-.tech-marquee { 
-    background: #ffffff; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); 
-    padding: 22px 0; overflow: hidden; white-space: nowrap; position: relative;
-    mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
-}
-.marquee-content { display: flex; align-items: center; animation: marquee 25s linear infinite; }
-.marquee-content span { font-size: 0.75rem; font-weight: 900; letter-spacing: 2px; color: #0f172a; padding: 0 40px; text-transform: uppercase; }
-.dot { width: 6px; height: 6px; background-color: var(--blue); display: inline-block; border-radius: 1px; opacity: 0.8; }
-@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-
-/* 9. FEATURED PROJECTS (REFINED) */
-.studio-section { border-top: 1px solid var(--border); margin-top: -1px; }
-.studio-label { grid-column: 1 / span 4; align-self: start; }
-.section-title { font-size: 0.8rem; color: var(--blue); text-transform: uppercase; letter-spacing: 3px; font-weight: 900; }
-.studio-body { grid-column: 6 / span 7; align-self: start; }
-.studio-body h3 { font-size: clamp(1.8rem, 4vw, 2.8rem); }
-
-.auto-slideshow { 
-    width: 100%; height: 500px; position: relative; overflow: hidden; background: #ffffff; 
-    border: 1px solid var(--border); margin: 30px 0 20px; border-radius: 8px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.02);
-}
-.slide { position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; transition: opacity 1.2s ease-in-out; z-index: 1; display: flex; align-items: center; justify-content: center; }
-.slide.active { opacity: 1; z-index: 2; }
-.slide img { max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain; }
-
-/* 10. THE BLUEPRINT */
+/* 10. THE BLUEPRINT (IMAGE CARDS) */
 .process-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 10px; }
-.process-item { display: flex; flex-direction: column; background: #ffffff; border: 1px solid var(--border); border-radius: 4px; overflow: hidden; transition: 0.4s ease; }
+.process-item { 
+    display: flex; flex-direction: column; background: #ffffff; 
+    border: 1px solid var(--border); 
+    border-radius: 8px !important; /* Restores rounded corners on cards */
+    overflow: hidden; transition: 0.4s ease; 
+}
 .process-item:hover { transform: translateY(-8px); border-color: var(--blue); }
-.process-image { width: 100%; height: 180px; overflow: hidden; border-bottom: 1px solid var(--border); }
+.process-image { width: 100%; height: 200px; overflow: hidden; border-bottom: 1px solid var(--border); }
 .process-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
 .process-text { padding: 30px; position: relative; }
-.process-text h5 { font-size: 1.1rem; }
 .process-text .step-num { position: absolute; top: 25px; right: 25px; font-size: 0.75rem; font-weight: 900; color: var(--blue); opacity: 0.4; }
 
 /* 11. SERVICE CARDS (FOR SERVICES PAGE) */
@@ -159,10 +120,8 @@ p, span, li {
     align-items: flex-start; transition: 0.3s ease;
 }
 .service-card:hover { transform: translateX(10px); box-shadow: 0 15px 40px rgba(15, 23, 42, 0.05); }
-.service-card h3 { font-size: 2.2rem; }
 
-/* 12. CONTACT DASHBOARD */
-.top-contact-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 40px; }
+/* 12. ACTION BUTTONS */
 .card-actions { display: flex; gap: 12px; margin-top: 20px; }
 .action-link-btn {
     flex: 1; display: flex; align-items: center; justify-content: center; background: #ffffff;
@@ -177,12 +136,10 @@ p, span, li {
 .info-card { background: #ffffff; border: 1px solid var(--border); padding: 30px; border-radius: 4px; }
 
 /* 14. MEDIA QUERIES */
-@media (max-width: 1100px) { .process-grid, .top-contact-grid { grid-template-columns: 1fr; } }
+@media (max-width: 1100px) { .process-grid { grid-template-columns: 1fr; } }
 @media (max-width: 992px) {
-    .hero-section { padding-top: 120px; text-align: center; }
+    .hero-section { text-align: center; }
     .hero-content { grid-column: 1 / span 12; display: flex; flex-direction: column; align-items: center; }
     .hero-visual { grid-column: 1 / span 12; justify-content: center; margin-top: 50px; }
-    .mockup-container { transform: none !important; max-width: 100%; }
-    .studio-label, .studio-body { grid-column: 1 / span 12; }
-    .service-card { padding: 40px 20px; }
+    .mockup-container { transform: none !important; }
 }
