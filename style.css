@@ -66,7 +66,7 @@ html, body {
 .section-padding { padding: 120px 0; }
 .premium-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 20px; align-items: center; }
 
-/* Hero Section */
+/* 7. HERO SECTION (SPLIT LAYOUT) */
 .hero-section { min-height: 90vh; display: flex; align-items: center; padding-top: 85px; }
 .hero-content { grid-column: 1 / span 6; }
 .hero-section h1 { color: #0f172a; font-size: clamp(2.5rem, 5vw, 4.5rem); line-height: 1.1; font-weight: 900; letter-spacing: -0.04em; margin: 24px 0; }
@@ -96,7 +96,7 @@ html, body {
     display: block;
 }
 
-/* TECH SCROLLER */
+/* 8. TECH SCROLLER */
 .tech-marquee { 
     background: #ffffff;
     border-top: 1px solid var(--border); 
@@ -112,7 +112,7 @@ html, body {
 .dot { width: 6px; height: 6px; background-color: var(--blue); display: inline-block; border-radius: 1px; opacity: 0.8; }
 @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
-/* 7. FEATURED PROJECTS FIX */
+/* 9. FEATURED PROJECTS (REFINED) */
 .studio-section { border-top: 1px solid var(--border); margin-top: -1px; }
 .studio-label { grid-column: 1 / span 4; align-self: start; }
 .section-title { font-size: 0.8rem; color: var(--blue); text-transform: uppercase; letter-spacing: 3px; font-weight: 900; }
@@ -121,20 +121,41 @@ html, body {
 .studio-body h3 { color: #0f172a; font-size: clamp(1.8rem, 4vw, 2.8rem); line-height: 1.2; font-weight: 900; margin-bottom: 30px; letter-spacing: -0.02em; }
 .studio-body p { font-size: 1.1rem; color: #64748b; line-height: 1.8; max-width: 700px; }
 
-/* Slideshow Container */
+/* Slideshow - Fixed Height, No Crop */
 .auto-slideshow { 
-    width: 100%; position: relative; overflow: hidden; 
-    background: #ffffff; border: 1px solid var(--border); margin: 30px 0 20px; border-radius: 8px;
-    aspect-ratio: 16 / 9;
+    width: 100%; 
+    height: 500px; /* Fixed height for desktop stability */
+    position: relative; 
+    overflow: hidden; 
+    background: #ffffff; 
+    border: 1px solid var(--border); 
+    margin: 30px 0 20px; 
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.02);
 }
-.slide { position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; transition: opacity 1.2s ease-in-out; z-index: 1; }
+
+.slide { 
+    position: absolute; 
+    top: 0; left: 0; width: 100%; height: 100%; 
+    opacity: 0; transition: opacity 1.2s ease-in-out; z-index: 1; 
+    display: flex; align-items: center; justify-content: center;
+}
+
 .slide.active { opacity: 1; z-index: 2; }
-.slide img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+.slide img { 
+    max-width: 100%; 
+    max-height: 100%; 
+    width: auto; 
+    height: auto; 
+    object-fit: contain; /* Shows full image without cutting off */
+    display: block; 
+}
 
 .work-details h4 { color: #0f172a; font-weight: 900; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px; font-size: 1rem; }
 .work-details p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.5; }
 
-/* 8. PROCESS & CONTACT */
+/* 10. PROCESS & CONTACT */
 .process-list { display: flex; flex-direction: column; gap: 20px; }
 .process-item { display: flex; flex-direction: column; gap: 10px; }
 .step-num { font-size: 0.8rem; font-weight: 900; color: var(--blue); opacity: 0.5; }
@@ -146,7 +167,12 @@ html, body {
     text-align: center;
 }
 
-/* 9. MEDIA QUERIES */
+.form-group input, .form-group textarea {
+    width: 100%; background: #f8fafc; border: 1px solid var(--border);
+    padding: 18px; color: #0f172a; border-radius: 4px; font-size: 1rem; transition: 0.3s;
+}
+
+/* 11. MEDIA QUERIES (DESKTOP & MOBILE FRIENDLY) */
 @media (max-width: 992px) {
     .hero-section { padding-top: 120px; text-align: center; }
     .hero-content { grid-column: 1 / span 12; display: flex; flex-direction: column; align-items: center; }
@@ -155,7 +181,7 @@ html, body {
     
     .studio-label, .studio-body { grid-column: 1 / span 12; }
     .studio-body { margin-top: 30px; }
-    .auto-slideshow { aspect-ratio: 4 / 3; }
+    .auto-slideshow { height: 300px; margin-top: 20px; } /* Shorter on mobile */
     .side-drawer { width: 100%; }
     .section-padding { padding: 80px 0; }
 }
