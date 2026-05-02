@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- UPDATED TITLE TO MATCH NEW BRANDING -->
     <title>TH WEB STUDIO | We build websites that grow businesses</title>
-    <link rel="stylesheet" href="style.css">
+    <!-- LINK TO YOUR UPDATED STYLE.CSS -->
+    <link rel="stylesheet" href="style.css?v=1.1">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -20,7 +20,6 @@
                     <h1>Solid web design for <br>businesses that <span class="blue-text">want results.</span></h1>
                     <p class="hero-subtext">We build high-performance websites and custom business tools for companies that value quality work over quick templates.</p>
                     <div class="hero-actions">
-                        <!-- CHANGED "View Work" TO "Start a Project" -->
                         <a href="contact.html" class="nav-cta-button hero-btn">Start a Project</a>
                     </div>
                 </div>
@@ -60,13 +59,14 @@
             </div>
         </section>
 
+        <!-- ADDED 'info-card' CLASS TO THE SLIDESHOW CONTAINER FOR THE WHITE HIGHLIGHT -->
         <section class="section-padding container">
             <div class="premium-grid">
                 <div class="studio-label">
                     <h2 class="section-title">Featured Work</h2>
                 </div>
                 <div class="studio-body">
-                    <div class="auto-slideshow">
+                    <div class="auto-slideshow info-card">
                         <div class="slide active"><img src="images/phipps-1.jpg" alt="Phipps 1"></div>
                         <div class="slide"><img src="images/phipps-2.jpg" alt="Phipps 2"></div>
                         <div class="slide"><img src="images/phipps-3.jpg" alt="Phipps 3"></div>
@@ -93,17 +93,18 @@
                 </div>
                 <div class="studio-body">
                     <div class="process-list">
-                        <div class="process-item">
+                        <!-- ADDED 'info-card' FOR INDIVIDUAL PROCESS STEPS -->
+                        <div class="process-item info-card">
                             <span class="step-num">01</span>
                             <h5>Blueprinting</h5>
                             <p>Mapping out the data and user journey before a single line of code is written.</p>
                         </div>
-                        <div class="process-item">
+                        <div class="process-item info-card">
                             <span class="step-num">02</span>
                             <h5>Framework</h5>
                             <p>Building a custom, light-weight foundation optimized for speed and security.</p>
                         </div>
-                        <div class="process-item">
+                        <div class="process-item info-card">
                             <span class="step-num">03</span>
                             <h5>Precision</h5>
                             <p>Rigorous testing and technical SEO integration to ensure visibility.</p>
@@ -113,8 +114,9 @@
             </div>
         </section>
 
+        <!-- UPDATED CONTACT CARD WITH THE NEW GLASS EFFECT -->
         <section class="section-padding container">
-            <div class="cta-card">
+            <div class="cta-card contact-form">
                 <h2>Ready to build a <span class="blue-text">better foundation?</span></h2>
                 <p>Now accepting local partners for Q2 2026.</p>
                 <a href="contact.html" class="nav-cta-button">Start a Project</a>
