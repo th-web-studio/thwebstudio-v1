@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact | TH WEB STUDIO</title>
-    <link rel="stylesheet" href="style.css">
+    <!-- Ensure this links to your updated style.css -->
+    <link rel="stylesheet" href="style.css?v=1.2">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
 </head>
 <body class="contact-page">
@@ -17,34 +18,44 @@
             <h1 style="font-size: clamp(2.5rem, 7vw, 4.5rem); font-weight: 900; margin: 20px 0 40px;">Let's build <br><span class="blue-text">something solid.</span></h1>
             
             <div class="top-contact-grid">
+                <!-- PHONE CARD -->
                 <div class="info-card highlight-card">
                     <h3 class="section-title">Direct Line</h3>
                     <p class="phone-display-top">(606) 691-0471</p>
                     <div class="card-actions">
-                        <a href="tel:6066910471" class="bubble-btn">📞 Call</a>
-                        <a href="sms:6066910471" class="bubble-btn">💬 Text</a>
+                        <a href="tel:6066910471" class="action-link-btn">
+                            <span class="icon">📞</span> Call
+                        </a>
+                        <a href="sms:6066910471" class="action-link-btn">
+                            <span class="icon">💬</span> Text
+                        </a>
                     </div>
                 </div>
 
+                <!-- EMAIL CARD -->
                 <div class="info-card">
                     <h3 class="section-title">Email Address</h3>
                     <p class="contact-detail-text">thwebstudio@outlook.com</p>
                     <div class="card-actions">
-                        <a href="mailto:thwebstudio@outlook.com" class="bubble-btn">✉️ Email Us</a>
+                        <a href="mailto:thwebstudio@outlook.com" class="action-link-btn wide-btn">
+                            <span class="icon">✉️</span> Send Email
+                        </a>
                     </div>
                 </div>
 
+                <!-- STATUS CARD -->
                 <div class="info-card status-card">
                     <h3 class="section-title">Status</h3>
-                    <p class="contact-detail-text">Accepting new projects</p>
-                    <span class="status-tag">Available Now</span>
+                    <p class="contact-detail-text">Accepting Projects</p>
+                    <div class="status-indicator">
+                        <span class="pulse-dot"></span> Available Now
+                    </div>
                 </div>
             </div>
         </div>
 
         <div class="premium-grid" style="margin-top: 60px;">
             <div class="studio-body" style="grid-column: 1 / span 12;">
-                <!-- JAVASCRIPT REDIRECT INTEGRATED -->
                 <form action="https://formspree.io/f/xwvajwwn" method="POST" class="contact-form" id="project-form">
                     
                     <div class="form-header-premium">
@@ -60,7 +71,7 @@
                         </div>
                         <div class="form-group">
                             <label>Phone</label>
-                            <input type="tel" name="phone" placeholder="(000) 000-0000" required>
+                            <input type="tel" name="phone" placeholder="(606) 000-0000" required>
                         </div>
                     </div>
 
@@ -84,7 +95,6 @@
 
     <script src="script.js"></script>
 
-    <!-- NEW REDIRECT SCRIPT -->
     <script>
       const form = document.getElementById("project-form");
       const button = document.getElementById("submit-btn");
@@ -99,22 +109,18 @@
         fetch(event.target.action, {
           method: 'POST',
           body: data,
-          headers: {
-            'Accept': 'application/json'
-          }
+          headers: { 'Accept': 'application/json' }
         }).then(response => {
           if (response.ok) {
-            // Success: Force redirect to your solid thank you page
             window.location.href = "https://thwebstudio-v1.pages.dev/thanks.html";
           } else {
             button.innerText = "Error - Try Again";
             button.disabled = false;
-            alert("There was a problem. Please try again or email us directly.");
+            alert("There was a problem. Please try again.");
           }
         }).catch(error => {
           button.innerText = "Error - Try Again";
           button.disabled = false;
-          alert("Network error. Please check your connection.");
         });
       });
     </script>
