@@ -4,31 +4,141 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our Standards | TH WEB STUDIO</title>
-    <link rel="stylesheet" href="style.css">
+    <!-- Version bump for style sync -->
+    <link rel="stylesheet" href="style.css?v=2.3">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        /* MOBILE SAFETY & PRECISION OVERRIDES */
+        * { box-sizing: border-box; }
+        html, body { overflow-x: hidden; width: 100%; margin: 0; padding: 0; }
+        .container {
+            width: 100%;
+            max-width: 100vw;
+            padding-left: 20px;
+            padding-right: 20px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .premium-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 20px;
+            width: 100%;
+        }
+
+        /* STANDARDS SPECIFIC STYLING */
+        .standard-card {
+            background: #ffffff;
+            border: 1px solid var(--border);
+            padding: 40px;
+            border-radius: 4px;
+            transition: border-color 0.3s ease;
+        }
+        .standard-card:hover {
+            border-color: var(--blue);
+        }
+        .standard-card h3 {
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            color: #0f172a;
+        }
+        .standard-card p {
+            color: #475569 !important;
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin: 0;
+        }
+        .spec-label {
+            font-family: monospace;
+            font-size: 0.7rem;
+            color: var(--blue);
+            display: block;
+            margin-bottom: 10px;
+            opacity: 0.7;
+        }
+
+        @media (max-width: 768px) {
+            h1 { word-wrap: break-word; overflow-wrap: break-word; }
+            .premium-grid { grid-template-columns: 1fr; }
+        }
+    </style>
 </head>
 <body>
 
     <div id="nav-placeholder"></div>
 
-    <main class="container section-padding">
-        <span class="eyebrow">THE BLUEPRINT</span>
-        <h1>Quality without <br><span class="blue-text">Compromise.</span></h1>
-        
-        <div class="card">
-            <h3 style="color: var(--blue);">Performance First</h3>
-            <p>A beautiful site is useless if it's slow. We prioritize load speeds and mobile optimization to ensure your business is accessible to everyone, regardless of their connection strength.</p>
-        </div>
+    <main>
+        <!-- HEADER -->
+        <section class="hero-section container" style="min-height: 50vh; padding-top: 130px;">
+            <div class="premium-grid">
+                <div style="grid-column: 1 / span 12;">
+                    <span class="eyebrow">TECHNICAL MANIFESTO</span>
+                    <h1 style="margin: 10px 0; font-size: clamp(2.5rem, 6vw, 4rem); font-weight: 900; letter-spacing: -0.04em;">Quality without <br><span class="blue-text">Compromise.</span></h1>
+                    <p class="hero-subtext" style="max-width: 600px;">We hold our work to a higher technical standard. No bloat, no shortcuts, just absolute precision.</p>
+                </div>
+            </div>
+        </section>
 
-        <div class="card">
-            <h3 style="color: var(--blue);">Full Ownership</h3>
-            <p>We believe you should own your digital assets. Once the project is complete, the code and domain belong to you—no proprietary locks or hidden monthly fees.</p>
-        </div>
+        <!-- STANDARDS GRID -->
+        <section class="container section-padding" style="border-top: 1px solid var(--border);">
+            <div class="premium-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px;">
+                
+                <!-- STANDARD 01 -->
+                <div class="standard-card">
+                    <span class="spec-label">[ PERFORMANCE_SPEC ]</span>
+                    <h3>The 1-Second Rule</h3>
+                    <p>In rural areas, speed isn't a luxury—it's a necessity. We optimize every kilobyte of code to ensure your site loads instantly on mobile data and rural connections. Speed is the foundation of user trust.</p>
+                </div>
 
-        <div class="card">
-            <h3 style="color: var(--blue);">Clean Architecture</h3>
-            <p>Our code is built to last. We use industry-standard practices that make it easy to scale your site as your business grows from local leader to regional authority.</p>
-        </div>
+                <!-- STANDARD 02 -->
+                <div class="standard-card">
+                    <span class="spec-label">[ ASSET_OWNERSHIP ]</span>
+                    <h3>Sovereign Ownership</h3>
+                    <p>You own 100% of your digital infrastructure. We never use proprietary "locks" or hidden licensing fees. The domain, the hosting, and every line of custom code are yours from day one.</p>
+                </div>
+
+                <!-- STANDARD 03 -->
+                <div class="standard-card">
+                    <span class="spec-label">[ CORE_ARCHITECTURE ]</span>
+                    <h3>The No-Bloat Policy</h3>
+                    <p>We reject heavy page-builders and unnecessary third-party plugins. By writing clean, manual HTML, CSS, and JS, we eliminate the security holes and "lag" that plague standard template sites.</p>
+                </div>
+
+                <!-- STANDARD 04 -->
+                <div class="standard-card">
+                    <span class="spec-label">[ SEARCH_ENGINE_INTEGRATION ]</span>
+                    <h3>Technical Authority</h3>
+                    <p>SEO isn't an "add-on." We build Search Engine Optimization into the actual architecture of your site—ensuring that Google sees a structured, fast, and authoritative business from the first crawl.</p>
+                </div>
+
+                <!-- STANDARD 05 -->
+                <div class="standard-card">
+                    <span class="spec-label">[ SECURITY_PROTOCOL ]</span>
+                    <h3>Hardened Security</h3>
+                    <p>Clean code is secure code. By reducing reliance on vulnerable third-party platforms, we provide a digital environment that is inherently more stable and resistant to common exploits.</p>
+                </div>
+
+                <!-- STANDARD 06 -->
+                <div class="standard-card">
+                    <span class="spec-label">[ ACCOUNTABILITY_SPEC ]</span>
+                    <h3>Direct Accountability</h3>
+                    <p>You aren't a ticket in a system. You work directly with the specialist building your site. This ensures that every detail aligns with your business goals and our rigorous quality standards.</p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- FINAL CTA -->
+        <section class="container section-padding">
+            <div class="contact-form" style="text-align: center; background: #ffffff;">
+                <h2 style="font-weight: 900;">Demand a <span class="blue-text">Higher Standard.</span></h2>
+                <p style="margin-bottom: 30px;">Let’s build a digital presence that actually works for your business.</p>
+                <a href="contact.html" class="nav-cta-button">Start Your Project</a>
+            </div>
+        </section>
     </main>
 
     <script src="script.js"></script>
