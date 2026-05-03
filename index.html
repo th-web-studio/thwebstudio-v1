@@ -5,8 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TH WEB STUDIO | We build websites that grow businesses</title>
     <!-- LINK TO YOUR UPDATED STYLE.CSS -->
-    <link rel="stylesheet" href="style.css?v=1.1">
+    <link rel="stylesheet" href="style.css?v=1.2">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        /* MOBILE SAFETY: Prevents horizontal scrolling and text run-off */
+        * {
+            box-sizing: border-box;
+        }
+        html, body {
+            overflow-x: hidden;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 100%;
+            max-width: 100vw;
+            padding-left: 20px;
+            padding-right: 20px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        /* Ensures the grid doesn't force a wide width on small screens */
+        .premium-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 20px;
+            width: 100%;
+        }
+        /* Mobile adjustment for the hero text wrapping */
+        @media (max-width: 768px) {
+            h1 {
+                word-wrap: break-word;
+                overflow-wrap: break-word;
+            }
+        }
+    </style>
 </head>
 <body>
 
