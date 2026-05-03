@@ -3,23 +3,193 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us | TH WEB STUDIO</title>
-    <link rel="stylesheet" href="style.css">
+    <title>TH WEB STUDIO | High-Performance Digital Architecture</title>
+    <!-- CSS version bumped to v=2.1 -->
+    <link rel="stylesheet" href="style.css?v=2.1">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        /* MOBILE SAFETY & PRECISION OVERRIDES */
+        * {
+            box-sizing: border-box;
+        }
+        html, body {
+            overflow-x: hidden;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 100%;
+            max-width: 100vw;
+            padding-left: 20px;
+            padding-right: 20px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .premium-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 20px;
+            width: 100%;
+        }
+
+        /* GLOBAL OVERRIDE: Ensuring sub-header text is Slate Grey, not black */
+        .studio-body p, .process-text p, .work-details p {
+            color: #475569 !important;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                word-wrap: break-word;
+                overflow-wrap: break-word;
+            }
+        }
+    </style>
 </head>
 <body>
 
     <div id="nav-placeholder"></div>
 
-    <main class="section-padding container">
-        <h2 class="section-title">Who We Are</h2>
-        <h1>Bridging Design <br>& Engineering</h1>
-        <p style="max-width: 700px;">Founded in 2026, TH Web Studio brings technical precision to the web. Based in a rural landscape, we help businesses project an authoritative national presence.</p>
-        
-        <div class="card" style="margin-top: 40px;">
-            <h3 style="color: var(--blue);">The Mission</h3>
-            <p>To provide local enterprises with the same high-level technical infrastructure found in major tech hubs, without losing the grounded connection to our local service area.</p>
+    <main>
+        <!-- HERO SECTION -->
+        <section class="hero-section container">
+            <div class="premium-grid">
+                <div class="hero-content">
+                    <span class="eyebrow">ESTABLISHED 2026</span>
+                    <h1>Digital architecture built for the <span class="blue-text">modern web.</span></h1>
+                    <p class="hero-subtext">We build high-performance websites and custom business tools for companies that value quality work over quick templates.</p>
+                    <div class="hero-actions">
+                        <a href="contact.html" class="nav-cta-button hero-btn">Start a Project</a>
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <div class="mockup-container">
+                        <img src="images/index-hero.jpg" alt="TH Web Studio Digital Architecture">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TECH SCROLLER -->
+        <div class="tech-marquee">
+            <div class="marquee-content">
+                <span>BUILT FOR SPEED</span> <span class="dot"></span>
+                <span>EASY TO USE</span> <span class="dot"></span>
+                <span>FOUND ON GOOGLE</span> <span class="dot"></span>
+                <span>WORKS ON EVERY SCREEN</span> <span class="dot"></span>
+                <span>CUSTOM BUILT FOR YOU</span> <span class="dot"></span>
+                <span>NO HIDDEN FEES</span> <span class="dot"></span>
+                <!-- Loop Duplicate -->
+                <span>BUILT FOR SPEED</span> <span class="dot"></span>
+                <span>EASY TO USE</span> <span class="dot"></span>
+                <span>FOUND ON GOOGLE</span> <span class="dot"></span>
+                <span>WORKS ON EVERY SCREEN</span> <span class="dot"></span>
+                <span>CUSTOM BUILT FOR YOU</span> <span class="dot"></span>
+                <span>NO HIDDEN FEES</span> <span class="dot"></span>
+            </div>
         </div>
+
+        <!-- ABOUT SECTION -->
+        <section class="studio-section section-padding container">
+            <div class="premium-grid">
+                <div class="studio-label">
+                    <h2 class="section-title">The Studio</h2>
+                </div>
+                <div class="studio-body">
+                    <h3>Architecture built for the <br>modern web.</h3>
+                    <p>
+                        At TH Web Studio, we strip away the noise. By combining high-end visual aesthetics with clean, lightweight code, we build digital environments that load instantly and command authority. We don't just deliver a link; we deliver a high-performance asset designed for speed, security, and absolute precision.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- FEATURED WORK -->
+        <section class="section-padding container">
+            <div class="premium-grid">
+                <div class="studio-label">
+                    <h2 class="section-title">Featured Work</h2>
+                </div>
+                <div class="studio-body">
+                    <div class="auto-slideshow info-card">
+                        <div class="slide active"><img src="images/phipps-1.jpg" alt="Phipps 1"></div>
+                        <div class="slide"><img src="images/phipps-2.jpg" alt="Phipps 2"></div>
+                        <div class="slide"><img src="images/phipps-3.jpg" alt="Phipps 3"></div>
+                        <div class="slide"><img src="images/phipps-4.jpg" alt="Phipps 4"></div>
+                        <div class="slide"><img src="images/phipps-5.jpg" alt="Phipps 5"></div>
+                        <div class="slide"><img src="images/phipps-6.jpg" alt="Phipps 6"></div>
+                        <div class="slide"><img src="images/phipps-7.jpg" alt="Phipps 7"></div>
+                        <div class="slide"><img src="images/phipps-8.jpeg" alt="Phipps 8"></div>
+                        <div class="slide"><img src="images/phipps-9.jpg" alt="Phipps 9"></div>
+                    </div>
+                    
+                    <div class="work-details">
+                        <h4>Phipps Excavating & Land Management</h4>
+                        <p>A full digital infrastructure and lead generation architecture built for durability.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROCESS SECTION -->
+        <section class="section-padding container">
+            <div class="premium-grid">
+                <div class="studio-label">
+                    <h2 class="section-title">Build Process</h2>
+                </div>
+                <div class="studio-body">
+                    <div class="process-grid">
+                        <!-- STEP 01 -->
+                        <div class="process-item info-card">
+                            <div class="process-image">
+                                <img src="images/blueprint-core.jpg" alt="Strategic Blueprinting">
+                            </div>
+                            <div class="process-text">
+                                <span class="step-num">01</span>
+                                <h5>Phase 01: The Blueprint</h5>
+                                <p>Mapping out the site architecture and user journey before a single line of code is written.</p>
+                            </div>
+                        </div>
+
+                        <!-- STEP 02 -->
+                        <div class="process-item info-card">
+                            <div class="process-image">
+                                <img src="images/framework-core.jpg" alt="Technical Framework">
+                            </div>
+                            <div class="process-text">
+                                <span class="step-num">02</span>
+                                <h5>Phase 02: Framework</h5>
+                                <p>Building a custom foundation. No heavy "page builders"—just efficient, high-performance code.</p>
+                            </div>
+                        </div>
+
+                        <!-- STEP 03 -->
+                        <div class="process-item info-card">
+                            <div class="process-image">
+                                <img src="images/precision-core.jpg" alt="Absolute Precision">
+                            </div>
+                            <div class="process-text">
+                                <span class="step-num">03</span>
+                                <h5>Phase 03: Precision Audit</h5>
+                                <p>Rigorous mobile testing and technical SEO integration to ensure your business is found.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CALL TO ACTION -->
+        <section class="section-padding container">
+            <div class="cta-card contact-form">
+                <h2 style="text-align: center;">Ready to build a <span class="blue-text">better foundation?</span></h2>
+                <p style="text-align: center; margin-bottom: 30px;">Currently accepting select projects for 2026.</p>
+                <div style="display: flex; justify-content: center;">
+                    <a href="contact.html" class="nav-cta-button">Request a Consult</a>
+                </div>
+            </div>
+        </section>
     </main>
 
     <script src="script.js"></script>
