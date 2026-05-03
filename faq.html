@@ -4,38 +4,178 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FAQ | TH WEB STUDIO</title>
-    <link rel="stylesheet" href="style.css">
+    <!-- Version bump for style sync -->
+    <link rel="stylesheet" href="style.css?v=2.5">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        /* MOBILE SAFETY & PRECISION OVERRIDES */
+        * { box-sizing: border-box; }
+        html, body { overflow-x: hidden; width: 100%; margin: 0; padding: 0; }
+        .container {
+            width: 100%;
+            max-width: 100vw;
+            padding-left: 20px;
+            padding-right: 20px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* FAQ ACCORDION STYLING */
+        .faq-container {
+            max-width: 800px;
+            margin-top: 40px;
+        }
+        .faq-item {
+            border-bottom: 1px solid var(--border);
+            padding: 20px 0;
+            cursor: pointer;
+        }
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .faq-question h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin: 0;
+            color: #0f172a;
+        }
+        .faq-icon {
+            font-size: 1.5rem;
+            color: var(--blue);
+            transition: transform 0.3s ease;
+        }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, margin-top 0.3s ease;
+        }
+        .faq-answer p {
+            color: #475569 !important;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin: 15px 0 0 0;
+        }
+        .faq-item.active .faq-answer {
+            max-height: 300px;
+            margin-top: 10px;
+        }
+        .faq-item.active .faq-icon {
+            transform: rotate(45deg);
+        }
+
+        @media (max-width: 768px) {
+            h1 { word-wrap: break-word; overflow-wrap: break-word; }
+        }
+    </style>
 </head>
 <body>
 
     <div id="nav-placeholder"></div>
 
-    <main class="container section-padding">
-        <span class="eyebrow">LOGISTICS & CLARITY</span>
-        <h1>Common <span class="blue-text">Questions.</span></h1>
-        
-        <div class="card">
-            <h3 style="color: var(--blue);">How long does a typical build take?</h3>
-            <p>Most professional business sites take between 4 to 6 weeks from the initial blueprint to the final launch. This ensures we have enough time for proper testing and SEO optimization.</p>
-        </div>
+    <main>
+        <!-- HEADER -->
+        <section class="hero-section container" style="min-height: 40vh; padding-top: 130px;">
+            <div class="premium-grid">
+                <div style="grid-column: 1 / span 12;">
+                    <span class="eyebrow">COMMON INQUIRIES</span>
+                    <h1 style="margin: 10px 0; font-size: clamp(2.5rem, 6vw, 4rem); font-weight: 900; letter-spacing: -0.04em;">Transparency by <span class="blue-text">Design.</span></h1>
+                    <p class="hero-subtext" style="max-width: 600px;">Have questions about our process or technical standards? We believe in clear answers and zero friction.</p>
+                </div>
+            </div>
+        </section>
 
-        <div class="card">
-            <h3 style="color: var(--blue);">Do I own the website once it's finished?</h3>
-            <p>Yes. 100%. Once the final payment is made, all code, design assets, and domain registrations are transferred to you. We don't believe in holding your business hostage with proprietary software.</p>
-        </div>
+        <!-- FAQ SECTION -->
+        <section class="container section-padding" style="border-top: 1px solid var(--border);">
+            <div class="faq-container">
+                
+                <!-- Q1 -->
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Who actually owns the website code?</h3>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>You do. Unlike agencies that use proprietary locked systems to keep you paying forever, we believe you should own your business assets. While most clients prefer us to handle technical hosting and maintenance, the keys to the kingdom always belong to you.</p>
+                    </div>
+                </div>
 
-        <div class="card">
-            <h3 style="color: var(--blue);">Will my site work on mobile phones?</h3>
-            <p>Every site we build is "Mobile-First." Given that most customers search for local services like excavation or landscaping on their phones, we ensure your site is fast and easy to navigate on any device.</p>
-        </div>
+                <!-- Q2 -->
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Will the site work on slow rural connections?</h3>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes. This is a core development standard for us. By writing clean, manual code and optimizing every asset, we ensure your site loads quickly even in areas with limited connectivity or on older mobile devices.</p>
+                    </div>
+                </div>
 
-        <div class="card">
-            <h3 style="color: var(--blue);">Can you help with local SEO?</h3>
-            <p>Absolutely. We build "Local SEO Foundations" into every project. We focus on making sure your business shows up correctly for people searching in your specific rural or local service area.</p>
-        </div>
+                <!-- Q3 -->
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>How long does a typical build take?</h3>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Because we prioritize precision over speed-running templates, a professional build typically takes 4 to 6 weeks. This timeline covers everything from initial strategy and blueprinting to development and our final precision audit.</p>
+                    </div>
+                </div>
+
+                <!-- Q4 -->
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Can I update the content myself?</h3>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We build with your workflow in mind. During the blueprinting phase, we discuss how often you need to change content. We can set up specialized areas for you to update text and photos easily without needing to touch the underlying code.</p>
+                    </div>
+                </div>
+
+                <!-- Q5 -->
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Do you offer technical support after launch?</h3>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Absolutely. We don't just hand over a link and disappear. We offer various managed infrastructure plans to handle hosting, security updates, and performance monitoring so you can stay focused on running your business.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- FINAL CTA -->
+        <section class="container section-padding">
+            <div class="contact-form" style="text-align: center; background: #ffffff;">
+                <h2 style="font-weight: 900;">Still have <span class="blue-text">questions?</span></h2>
+                <p style="margin-bottom: 30px;">We are happy to discuss the specifics of your project.</p>
+                <div style="display: flex; justify-content: center;">
+                    <a href="contact.html" class="nav-cta-button">Get in Touch</a>
+                </div>
+            </div>
+        </section>
     </main>
 
+    <script>
+        // FAQ Accordion Logic
+        document.querySelectorAll('.faq-item').forEach(item => {
+            item.addEventListener('click', () => {
+                // Toggle active class on the clicked item
+                item.classList.toggle('active');
+                
+                // Optional: Close other open items
+                document.querySelectorAll('.faq-item').forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+            });
+        });
+    </script>
     <script src="script.js"></script>
 </body>
 </html>
