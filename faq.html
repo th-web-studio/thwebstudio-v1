@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FAQ | TH WEB STUDIO</title>
     <!-- CSS version sync -->
-    <link rel="stylesheet" href="style.css?v=2.8">
+    <link rel="stylesheet" href="style.css?v=2.9">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
         /* MOBILE SAFETY & PRECISION OVERRIDES */
@@ -98,7 +98,7 @@
                         <span class="faq-icon">+</span>
                     </div>
                     <div class="faq-answer">
-                        <p>You do. Unlike agencies that use proprietary locked systems to keep you paying forever, we believe you should own your business assets. While most clients prefer us to handle technical hosting and maintenance, the ownership of the domain and code always belongs to you.</p>
+                        <p>You do. Unlike agencies that use proprietary locked systems to keep you paying forever, we believe you should own your business assets. While most clients prefer us to handle technical hosting and maintenance, the ownership of the code always belongs to you.</p>
                     </div>
                 </div>
 
@@ -113,36 +113,69 @@
                     </div>
                 </div>
 
-                <!-- Q3: TIMELINE -->
+                <!-- Q3: MOBILE -->
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Will my site work correctly on a smartphone?</h3>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Your site is built for mobile first. We recognize that your customers are often looking for your services while on a job site or on the road. We optimize the interface specifically for thumb navigation and fast loading on mobile data networks.</p>
+                    </div>
+                </div>
+
+                <!-- Q4: TIMELINE -->
                 <div class="faq-item">
                     <div class="faq-question">
                         <h3>How long does a typical build take?</h3>
                         <span class="faq-icon">+</span>
                     </div>
                     <div class="faq-answer">
-                        <p>Our specialized workflow allows us to deliver high-performance digital infrastructure in <strong>around 2 to 4 weeks</strong>. Provided the necessary project information and assets are available, we move from strategy to launch with absolute precision and zero unnecessary delays.</p>
+                        <p>Our specialized workflow allows us to deliver high performance digital infrastructure in <strong>around 2 to 4 weeks</strong>. Provided the necessary project information and assets are available, we move from strategy to launch with absolute precision and zero unnecessary delays.</p>
                     </div>
                 </div>
 
-                <!-- Q4: UPDATES & MAINTENANCE -->
+                <!-- Q5: UPDATES & MAINTENANCE -->
                 <div class="faq-item">
                     <div class="faq-question">
                         <h3>Can I update the content myself?</h3>
                         <span class="faq-icon">+</span>
                     </div>
                     <div class="faq-answer">
-                        <p>We provide the capability for you to handle basic text and image updates. However, most of our clients choose our <strong>Monthly Infrastructure Plan</strong>. This ensures that your site remains optimized, secure, and technically sound without you having to touch a single line of code. It allows you to focus on your business while we ensure your digital assets are performing at their peak 24/7.</p>
+                        <p>We provide the capability for you to handle basic text and image updates. However, most of our clients choose our <strong>Monthly Infrastructure Plan</strong>. This ensures that your site remains optimized, secure, and technically sound without you having to touch a single line of code.</p>
                     </div>
                 </div>
 
-                <!-- Q5: SUPPORT & MANAGEMENT -->
+                <!-- Q6: FEES & DOMAIN -->
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Are there any hidden fees?</h3>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>None. We believe in total transparency. Your initial quote covers the complete build of the site. You will be responsible for purchasing your own domain name to ensure you maintain full ownership of your digital address. While we offer professional management plans for security and updates, these are optional and clearly defined upfront.</p>
+                    </div>
+                </div>
+
+                <!-- Q7: SUPPORT & MANAGEMENT -->
                 <div class="faq-item">
                     <div class="faq-question">
                         <h3>Do you offer support after the launch?</h3>
                         <span class="faq-icon">+</span>
                     </div>
                     <div class="faq-answer">
-                        <p>Absolutely. We do not just hand over a link and disappear. We offer managed infrastructure plans to handle hosting, security updates, and performance monitoring. This professional management ensures your site stays stable and resistant to exploits while providing a consistent point of contact for any technical needs.</p>
+                        <p>Absolutely. We do not just hand over a link and disappear. We offer managed infrastructure plans to handle hosting, security updates, and performance monitoring. This professional management ensures your site stays stable and resistant to exploits.</p>
+                    </div>
+                </div>
+
+                <!-- Q8: LONGEVITY -->
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>How long will this website last?</h3>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Because we use clean, manual code rather than relying on trendy, bloated templates, our sites have a significantly longer lifespan. We build on a foundation of technical authority, meaning your site is engineered to remain fast and secure for years to come.</p>
                     </div>
                 </div>
 
@@ -162,17 +195,12 @@
     </main>
 
     <script>
-        // FAQ Accordion Logic
         document.querySelectorAll('.faq-item').forEach(item => {
             item.addEventListener('click', () => {
                 const isActive = item.classList.contains('active');
-                
-                // Close all items
                 document.querySelectorAll('.faq-item').forEach(otherItem => {
                     otherItem.classList.remove('active');
                 });
-
-                // If the clicked item wasn't active, open it
                 if (!isActive) {
                     item.classList.add('active');
                 }
