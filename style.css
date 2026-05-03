@@ -344,3 +344,9 @@ html, body {
     .card-actions { flex-direction: column; }
     .phone-display-top { font-size: 1.2rem; }
 }
+
+/* 14. SERVICES PAGE SPECIFIC FIX */
+.service-card p {
+    color: #475569 !important;
+}
+
