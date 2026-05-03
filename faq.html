@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FAQ | TH WEB STUDIO</title>
-    <!-- Version bump for style sync -->
-    <link rel="stylesheet" href="style.css?v=2.5">
+    <!-- CSS version sync -->
+    <link rel="stylesheet" href="style.css?v=2.6">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
         /* MOBILE SAFETY & PRECISION OVERRIDES */
@@ -27,7 +27,7 @@
         }
         .faq-item {
             border-bottom: 1px solid var(--border);
-            padding: 20px 0;
+            padding: 25px 0;
             cursor: pointer;
         }
         .faq-question {
@@ -40,26 +40,27 @@
             font-weight: 700;
             margin: 0;
             color: #0f172a;
+            letter-spacing: -0.01em;
         }
         .faq-icon {
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             color: var(--blue);
             transition: transform 0.3s ease;
+            font-weight: bold;
         }
         .faq-answer {
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.3s ease, margin-top 0.3s ease;
+            transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
         .faq-answer p {
             color: #475569 !important;
             font-size: 0.95rem;
-            line-height: 1.6;
+            line-height: 1.7;
             margin: 15px 0 0 0;
         }
         .faq-item.active .faq-answer {
-            max-height: 300px;
-            margin-top: 10px;
+            max-height: 400px; /* Adjust if answer is very long */
         }
         .faq-item.active .faq-icon {
             transform: rotate(45deg);
@@ -90,58 +91,58 @@
         <section class="container section-padding" style="border-top: 1px solid var(--border);">
             <div class="faq-container">
                 
-                <!-- Q1 -->
+                <!-- Q1: OWNERSHIP -->
                 <div class="faq-item">
                     <div class="faq-question">
                         <h3>Who actually owns the website code?</h3>
                         <span class="faq-icon">+</span>
                     </div>
                     <div class="faq-answer">
-                        <p>You do. Unlike agencies that use proprietary locked systems to keep you paying forever, we believe you should own your business assets. While most clients prefer us to handle technical hosting and maintenance, the keys to the kingdom always belong to you.</p>
+                        <p>You do. Unlike agencies that use proprietary locked systems to keep you paying forever, we believe you should own your business assets. While most clients prefer us to handle technical hosting and maintenance, the ownership of the domain and code always belongs to you.</p>
                     </div>
                 </div>
 
-                <!-- Q2 -->
+                <!-- Q2: PERFORMANCE -->
                 <div class="faq-item">
                     <div class="faq-question">
                         <h3>Will the site work on slow rural connections?</h3>
                         <span class="faq-icon">+</span>
                     </div>
                     <div class="faq-answer">
-                        <p>Yes. This is a core development standard for us. By writing clean, manual code and optimizing every asset, we ensure your site loads quickly even in areas with limited connectivity or on older mobile devices.</p>
+                        <p>Yes. This is a core development standard for our studio. By writing clean, manual code and optimizing every asset, we ensure your site loads quickly even in areas with limited connectivity or on older mobile devices.</p>
                     </div>
                 </div>
 
-                <!-- Q3 -->
+                <!-- Q3: TIMELINE -->
                 <div class="faq-item">
                     <div class="faq-question">
                         <h3>How long does a typical build take?</h3>
                         <span class="faq-icon">+</span>
                     </div>
                     <div class="faq-answer">
-                        <p>Because we prioritize precision over speed-running templates, a professional build typically takes 4 to 6 weeks. This timeline covers everything from initial strategy and blueprinting to development and our final precision audit.</p>
+                        <p>Our specialized workflow allows us to deliver high-performance digital infrastructure in **2 to 4 weeks**. Providing the necessary project information and assets is handled efficiently, we move from strategy to launch with absolute precision and zero unnecessary delays.</p>
                     </div>
                 </div>
 
-                <!-- Q4 -->
+                <!-- Q4: UPDATES -->
                 <div class="faq-item">
                     <div class="faq-question">
                         <h3>Can I update the content myself?</h3>
                         <span class="faq-icon">+</span>
                     </div>
                     <div class="faq-answer">
-                        <p>We build with your workflow in mind. During the blueprinting phase, we discuss how often you need to change content. We can set up specialized areas for you to update text and photos easily without needing to touch the underlying code.</p>
+                        <p>We build with your workflow in mind. During the blueprinting phase, we discuss how often you need to change content. We can set up specialized areas for you to update text and photos easily without needing to touch the underlying architecture.</p>
                     </div>
                 </div>
 
-                <!-- Q5 -->
+                <!-- Q5: SUPPORT -->
                 <div class="faq-item">
                     <div class="faq-question">
-                        <h3>Do you offer technical support after launch?</h3>
+                        <h3>Do you offer support after the launch?</h3>
                         <span class="faq-icon">+</span>
                     </div>
                     <div class="faq-answer">
-                        <p>Absolutely. We don't just hand over a link and disappear. We offer various managed infrastructure plans to handle hosting, security updates, and performance monitoring so you can stay focused on running your business.</p>
+                        <p>Absolutely. We do not just hand over a link and disappear. We offer managed infrastructure plans to handle hosting, security updates, and performance monitoring. This allows you to stay focused on running your business while we handle the technical details.</p>
                     </div>
                 </div>
 
@@ -164,15 +165,17 @@
         // FAQ Accordion Logic
         document.querySelectorAll('.faq-item').forEach(item => {
             item.addEventListener('click', () => {
-                // Toggle active class on the clicked item
-                item.classList.toggle('active');
+                const isActive = item.classList.contains('active');
                 
-                // Optional: Close other open items
+                // Close all items
                 document.querySelectorAll('.faq-item').forEach(otherItem => {
-                    if (otherItem !== item) {
-                        otherItem.classList.remove('active');
-                    }
+                    otherItem.classList.remove('active');
                 });
+
+                // If the clicked item wasn't active, open it
+                if (!isActive) {
+                    item.classList.add('active');
+                }
             });
         });
     </script>
