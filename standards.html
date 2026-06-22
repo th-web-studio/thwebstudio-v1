@@ -70,16 +70,16 @@
            ========================================================================== */
         @media (min-width: 769px) {
             .container {
-                max-width: 1200px; /* Restricts the layout block to a readable width */
+                max-width: 1200px;
                 padding-left: 40px;
                 padding-right: 40px;
             }
 
             .premium-grid {
-                gap: 30px; /* Extra spacing layout margin for cards on large panels */
+                gap: 30px;
             }
 
-            /* Organizes the 6 items into an elegant 3-column row system */
+            /* Forces a strict 3-column split on desktop to keep rows uniform (3 and 3) */
             .standards-layout {
                 grid-template-columns: repeat(3, 1fr) !important;
             }
