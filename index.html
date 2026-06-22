@@ -253,6 +253,25 @@
         </section>
     </main>
 
-    <script src="script.js"></script>
+   <script src="script.js"></script>
+    <script>
+        function initSlideshows() {
+            const slideshows = document.querySelectorAll('.auto-slideshow');
+            slideshows.forEach(ss => {
+                const slides = ss.querySelectorAll('.slide');
+                if (slides.length <= 1) return; // Skip if there's only one image
+                
+                let currentSlide = 0;
+
+                setInterval(() => {
+                    slides[currentSlide].classList.remove('active');
+                    currentSlide = (currentSlide + 1) % slides.length;
+                    slides[currentSlide].classList.add('active');
+                }, 4000); // Cycles images every 4 seconds
+            });
+        }
+        // Fire up the slideshows as soon as the page is ready
+        document.addEventListener("DOMContentLoaded", initSlideshows);
+    </script>
 </body>
 </html>
