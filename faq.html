@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FAQ | TH WEB STUDIO</title>
-    <!-- CSS version sync -->
     <link rel="stylesheet" href="style.css?v=2.9">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
@@ -69,6 +68,33 @@
         @media (max-width: 768px) {
             h1 { word-wrap: break-word; overflow-wrap: break-word; }
         }
+
+        /* ==========================================================================
+           DESKTOP STYLES: Activates on screens wider than 768px 
+           Leaves all mobile layout structural elements completely unchanged.
+           ========================================================================== */
+        @media (min-width: 769px) {
+            .container {
+                max-width: 1200px;
+                padding-left: 40px;
+                padding-right: 40px;
+            }
+
+            /* Centers the headline layout matching your contact page hierarchy */
+            .faq-header-alignment {
+                text-align: center;
+            }
+
+            .faq-header-alignment p {
+                margin-left: auto !important;
+                margin-right: auto !important;
+            }
+
+            /* Extra vertical separation space for reading layouts on large monitors */
+            .faq-container {
+                margin: 60px auto;
+            }
+        }
     </style>
 </head>
 <body>
@@ -76,10 +102,9 @@
     <div id="nav-placeholder"></div>
 
     <main>
-        <!-- HEADER -->
         <section class="hero-section container" style="min-height: 40vh; padding-top: 130px;">
             <div class="premium-grid">
-                <div style="grid-column: 1 / span 12;">
+                <div class="faq-header-alignment" style="grid-column: 1 / span 12;">
                     <span class="eyebrow">COMMON INQUIRIES</span>
                     <h1 style="margin: 10px 0; font-size: clamp(2.5rem, 6vw, 4rem); font-weight: 900; letter-spacing: -0.04em;">Transparency by <span class="blue-text">Design.</span></h1>
                     <p class="hero-subtext" style="max-width: 600px;">Have questions about our process or technical standards? We believe in clear answers and zero friction.</p>
@@ -87,11 +112,9 @@
             </div>
         </section>
 
-        <!-- FAQ SECTION -->
         <section class="container section-padding" style="border-top: 1px solid var(--border);">
             <div class="faq-container">
                 
-                <!-- Q1: OWNERSHIP -->
                 <div class="faq-item">
                     <div class="faq-question">
                         <h3>Who actually owns the website code?</h3>
@@ -102,7 +125,6 @@
                     </div>
                 </div>
 
-                <!-- Q2: PERFORMANCE -->
                 <div class="faq-item">
                     <div class="faq-question">
                         <h3>Will the site work on slow rural connections?</h3>
@@ -113,7 +135,6 @@
                     </div>
                 </div>
 
-                <!-- Q3: MOBILE -->
                 <div class="faq-item">
                     <div class="faq-question">
                         <h3>Will my site work correctly on a smartphone?</h3>
@@ -124,7 +145,6 @@
                     </div>
                 </div>
 
-                <!-- Q4: TIMELINE -->
                 <div class="faq-item">
                     <div class="faq-question">
                         <h3>How long does a typical build take?</h3>
@@ -135,7 +155,6 @@
                     </div>
                 </div>
 
-                <!-- Q5: UPDATES & MAINTENANCE -->
                 <div class="faq-item">
                     <div class="faq-question">
                         <h3>Can I update the content myself?</h3>
@@ -146,7 +165,6 @@
                     </div>
                 </div>
 
-                <!-- Q6: FEES & DOMAIN -->
                 <div class="faq-item">
                     <div class="faq-question">
                         <h3>Are there any hidden fees?</h3>
@@ -157,7 +175,6 @@
                     </div>
                 </div>
 
-                <!-- Q7: SUPPORT & MANAGEMENT -->
                 <div class="faq-item">
                     <div class="faq-question">
                         <h3>Do you offer support after the launch?</h3>
@@ -168,7 +185,6 @@
                     </div>
                 </div>
 
-                <!-- Q8: LONGEVITY -->
                 <div class="faq-item">
                     <div class="faq-question">
                         <h3>How long will this website last?</h3>
@@ -182,7 +198,6 @@
             </div>
         </section>
 
-        <!-- FINAL CTA -->
         <section class="container section-padding">
             <div class="contact-form" style="text-align: center; background: #ffffff;">
                 <h2 style="font-weight: 900;">Still have <span class="blue-text">questions?</span></h2>
