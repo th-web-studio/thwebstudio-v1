@@ -56,9 +56,122 @@ const navHTML = `
         .line-2 { width: 70%; }
         .line-3 { width: 100%; }
 
+        /* Fallback Desktop Top Navigation Styling (Hidden on Mobile) */
+        .desktop-nav-links {
+            display: none;
+        }
+
         /* Mobile adjustment */
         @media (max-width: 480px) {
             .nav-tagline { font-size: 0.6rem; }
+        }
+
+        /* ==========================================================================
+           DESKTOP STYLES: Activates on screens wider than 768px 
+           Leaves all mobile styles and sidebar elements completely unchanged.
+           ========================================================================== */
+        @media (min-width: 769px) {
+            /* Hides mobile hamburger button layout wrapper entirely */
+            .menu-btn-container {
+                display: none !important;
+            }
+
+            /* Switches mobile flex space to handle premium desktop alignment rows */
+            .nav-container {
+                display: flex !important;
+                justify-content: space-between !important;
+                align-items: center !important;
+                max-width: 1200px;
+                margin: 0 auto;
+                width: 100%;
+            }
+
+            /* Exposes inline text navigation engine styles */
+            .desktop-nav-links {
+                display: flex !important;
+                align-items: center;
+                list-style: none;
+                margin: 0;
+                padding: 0;
+                gap: 25px;
+            }
+
+            .desktop-nav-links a, 
+            .desktop-nav-links .desktop-drop-trigger {
+                font-family: 'Inter', sans-serif;
+                font-size: 0.85rem;
+                font-weight: 700;
+                color: #0f172a;
+                text-decoration: none;
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+                transition: color 0.2s ease;
+                background: none;
+                border: none;
+                cursor: pointer;
+                padding: 0;
+                margin: 0;
+            }
+
+            .desktop-nav-links a:hover,
+            .desktop-nav-links .desktop-drop-trigger:hover {
+                color: var(--blue, #0066cc);
+            }
+
+            /* Container context setup for hover dropdown menu block */
+            .desktop-has-dropdown {
+                position: relative;
+                display: inline-block;
+            }
+
+            .desktop-dropdown-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                background: #ffffff;
+                border: 1px solid var(--border, #e2e8f0);
+                border-radius: 4px;
+                padding: 10px 0;
+                min-width: 160px;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+                z-index: 1000;
+                list-style: none;
+                margin: 5px 0 0 0;
+            }
+
+            .desktop-dropdown-menu li a {
+                display: block;
+                padding: 8px 20px;
+                font-weight: 400;
+                text-transform: none;
+                color: #475569;
+            }
+
+            .desktop-dropdown-menu li a:hover {
+                background: #f8fafc;
+                color: var(--blue, #0066cc);
+            }
+
+            /* Simple hover engine selector to show submenu blocks instantly */
+            .desktop-has-dropdown:hover .desktop-dropdown-menu {
+                display: block !important;
+            }
+
+            /* Styled Desktop CTA Accent Action link option button */
+            .desktop-nav-links .desktop-cta-accent {
+                background: var(--blue, #0066cc) !important;
+                color: #ffffff !important;
+                padding: 10px 20px !important;
+                border-radius: 4px !important;
+                font-size: 0.8rem !important;
+                font-weight: 900 !important;
+                letter-spacing: 1px !important;
+            }
+            
+            .desktop-nav-links .desktop-cta-accent:hover {
+                opacity: 0.95;
+            }
         }
     </style>
 
@@ -66,9 +179,24 @@ const navHTML = `
         <div class="nav-container">
             <a href="index.html" class="brand-stack">
                 <span class="brand">TH WEB <span class="accent">STUDIO</span></span>
-                <!-- TAGLINE IN NAV BAR -->
                 <p class="nav-tagline">We build websites that grow businesses</p>
             </a>
+            
+            <ul class="desktop-nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li class="desktop-has-dropdown">
+                    <button class="desktop-drop-trigger">About ▾</button>
+                    <ul class="desktop-dropdown-menu">
+                        <li><a href="about-us.html">About Us</a></li>
+                        <li><a href="standards.html">Our Standards</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                    </ul>
+                </li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="contact.html" class="desktop-cta-accent">Get Started</a></li>
+            </ul>
             
             <div class="menu-btn-container">
                 <button class="menu-btn" id="menu-btn">
@@ -87,7 +215,6 @@ const navHTML = `
         <div class="drawer-content">
             <div class="drawer-brand" style="color: #0f172a; border-bottom: 1px solid rgba(15, 23, 42, 0.1);">
                 TH WEB <span class="accent">STUDIO</span>
-                <!-- UPDATED TAGLINE IN DRAWER -->
                 <p class="drawer-tagline" style="color: #64748b;">We build websites that grow businesses</p>
             </div>
             
