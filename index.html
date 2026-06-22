@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TH WEB STUDIO | We build websites that grow businesses</title>
-    <!-- LINK TO YOUR UPDATED STYLE.CSS -->
     <link rel="stylesheet" href="style.css?v=1.2">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
@@ -39,6 +38,62 @@
                 word-wrap: break-word;
                 overflow-wrap: break-word;
             }
+            /* Stack elements vertically on mobile inside your 12-column grid */
+            .hero-content, .hero-visual, .studio-label, .studio-body {
+                grid-column: span 12;
+            }
+        }
+
+        /* ==========================================================================
+           DESKTOP STYLES: Activates on screens wider than 768px 
+           Leaves all mobile styles completely unchanged.
+           ========================================================================== */
+        @media (min-width: 769px) {
+            .container {
+                max-width: 1200px; /* Caps the content width so it doesn't stretch infinitely */
+                padding-left: 40px;
+                padding-right: 40px;
+            }
+
+            /* Hero split layout */
+            .hero-section .premium-grid {
+                align-items: center; /* Vertically centers text with the image */
+            }
+            .hero-content {
+                grid-column: span 7; /* Left side holds the message */
+            }
+            .hero-visual {
+                grid-column: span 5; /* Right side holds the hero image mockup */
+            }
+            .hero-visual img {
+                width: 100%;
+                height: auto;
+                display: block;
+                border-radius: 8px; /* Smooths image edges if desired */
+            }
+
+            /* Studio & Featured Work side-by-side split layout */
+            .studio-label {
+                grid-column: span 4; /* Left column: Title */
+            }
+            .studio-body {
+                grid-column: span 8; /* Right column: Main text block / slideshow */
+            }
+
+            /* Build Process 3-Column horizontal alignment */
+            .process-grid {
+                display: flex;
+                gap: 24px;
+            }
+            .process-item {
+                flex: 1; /* Distributes the 3 steps evenly across the screen */
+            }
+
+            /* CTA block centering for premium desktop feel */
+            .cta-card {
+                text-align: center;
+                padding: 60px 40px;
+            }
         }
     </style>
 </head>
@@ -47,7 +102,6 @@
     <div id="nav-placeholder"></div>
 
     <main>
-        <!-- HERO SECTION: RESTRUCTURED FOR SPLIT LAYOUT -->
         <section class="hero-section container">
             <div class="premium-grid">
                 <div class="hero-content">
@@ -59,7 +113,6 @@
                     </div>
                 </div>
 
-                <!-- HERO VISUAL: ADDING YOUR INDEX-HERO IMAGE -->
                 <div class="hero-visual">
                     <div class="mockup-container">
                         <img src="images/index-hero.jpg" alt="TH Web Studio Digital Architecture">
@@ -76,7 +129,6 @@
                 <span>WORKS ON EVERY SCREEN</span> <span class="dot"></span>
                 <span>CUSTOM BUILT FOR YOU</span> <span class="dot"></span>
                 <span>NO HIDDEN FEES</span> <span class="dot"></span>
-                <!-- Loop Duplicate -->
                 <span>BUILT FOR SPEED</span> <span class="dot"></span>
                 <span>EASY TO USE</span> <span class="dot"></span>
                 <span>FOUND ON GOOGLE</span> <span class="dot"></span>
@@ -135,7 +187,6 @@
                 </div>
                 <div class="studio-body">
                     <div class="process-grid">
-                        <!-- STEP 01 -->
                         <div class="process-item info-card">
                             <div class="process-image">
                                 <img src="images/blueprint-core.jpg" alt="Strategic Blueprinting">
@@ -147,7 +198,6 @@
                             </div>
                         </div>
 
-                        <!-- STEP 02 -->
                         <div class="process-item info-card">
                             <div class="process-image">
                                 <img src="images/framework-core.jpg" alt="Technical Framework">
@@ -159,7 +209,6 @@
                             </div>
                         </div>
 
-                        <!-- STEP 03 -->
                         <div class="process-item info-card">
                             <div class="process-image">
                                 <img src="images/precision-core.jpg" alt="Absolute Precision">
@@ -175,7 +224,6 @@
             </div>
         </section>
 
-        <!-- UPDATED CTA WORDING -->
         <section class="section-padding container">
             <div class="cta-card contact-form">
                 <h2>Ready to build a <span class="blue-text">better foundation?</span></h2>
