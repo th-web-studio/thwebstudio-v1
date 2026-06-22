@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About | TH WEB STUDIO</title>
-    <!-- Version bump to ensure latest style sync -->
     <link rel="stylesheet" href="style.css?v=2.2">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
@@ -35,6 +34,39 @@
 
         @media (max-width: 768px) {
             h1 { word-wrap: break-word; overflow-wrap: break-word; }
+            /* Safe stacking for grid elements on mobile viewports */
+            .studio-label, .about-body, .capabilities-wrapper {
+                grid-column: span 12 !important;
+            }
+        }
+
+        /* ==========================================================================
+           DESKTOP STYLES: Activates on screens wider than 768px 
+           Leaves all mobile styles completely unchanged.
+           ========================================================================== */
+        @media (min-width: 769px) {
+            .container {
+                max-width: 1200px; /* Caps width to maintain optimal layout readability */
+                padding-left: 40px;
+                padding-right: 40px;
+            }
+
+            .premium-grid {
+                gap: 40px; /* Spacious column layout spacing */
+            }
+
+            /* Splits the label and body elements into side-by-side columns */
+            .studio-label {
+                grid-column: span 4 !important;
+            }
+            .about-body {
+                grid-column: span 8 !important;
+                margin-top: 0 !important; /* Removes mobile top margin override */
+            }
+            .capabilities-wrapper {
+                grid-column: span 8 !important;
+                margin-top: 0 !important;
+            }
         }
     </style>
 </head>
@@ -43,7 +75,6 @@
     <div id="nav-placeholder"></div>
 
     <main>
-        <!-- HERO SECTION -->
         <section class="hero-section container" style="min-height: 60vh; padding-top: 130px;">
             <div class="premium-grid">
                 <div class="hero-content" style="grid-column: 1 / span 12;">
@@ -54,7 +85,6 @@
             </div>
         </section>
 
-        <!-- THE STUDIO STORY -->
         <section class="container section-padding" style="border-top: 1px solid var(--border);">
             <div class="premium-grid">
                 <div class="studio-label">
@@ -72,13 +102,12 @@
             </div>
         </section>
 
-        <!-- HARDWARE/CAPABILITY SECTION -->
         <section class="container section-padding" style="background: #ffffff; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
             <div class="premium-grid">
                 <div class="studio-label">
                     <h2 class="section-title">Capabilities</h2>
                 </div>
-                <div style="grid-column: 1 / span 12; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 30px;">
+                <div class="capabilities-wrapper" style="grid-column: 1 / span 12; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 30px;">
                     
                     <div class="info-card">
                         <h4 style="font-weight: 900; color: #0f172a; margin-bottom: 10px;">Custom Infrastructure</h4>
@@ -99,7 +128,6 @@
             </div>
         </section>
 
-        <!-- FINAL CALL TO ACTION -->
         <section class="container section-padding">
             <div class="info-card" style="text-align: center; padding: 80px 40px; border: 1px solid var(--blue);">
                 <span class="eyebrow">GET STARTED</span>
