@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Services | TH WEB STUDIO</title>
-    <!-- Bumped version to v=1.4 to force cache refresh -->
     <link rel="stylesheet" href="style.css?v=1.4">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
@@ -45,6 +44,28 @@
                 overflow-wrap: break-word;
             }
         }
+
+        /* ==========================================================================
+           DESKTOP STYLES: Activates on screens wider than 768px 
+           Leaves all mobile styles completely unchanged.
+           ========================================================================== */
+        @media (min-width: 769px) {
+            .container {
+                max-width: 1200px; /* Binds content row widths nicely on high-res monitors */
+                padding-left: 40px;
+                padding-right: 40px;
+            }
+
+            .premium-grid {
+                gap: 40px; /* Gives the grid cards spacious, premium breathing room */
+            }
+
+            /* Arranges the 4 service blocks into a clean 2-column wide layout grid */
+            .service-card {
+                grid-column: span 6 !important; 
+                margin-bottom: 10px !important; /* Reduces vertical mobile margins for balanced grid rows */
+            }
+        }
     </style>
 </head>
 <body>
@@ -52,7 +73,6 @@
     <div id="nav-placeholder"></div>
 
     <main>
-        <!-- Header Section -->
         <section class="hero-section container" style="padding-top: 130px; padding-bottom: 40px;">
             <div class="premium-grid">
                 <div class="hero-content" style="grid-column: 1 / span 12;">
@@ -63,32 +83,27 @@
             </div>
         </section>
 
-        <!-- Services Stack -->
         <section class="container section-padding" style="padding-top: 0;">
             <div class="premium-grid">
                 
-                <!-- Service 01 -->
                 <div class="service-card" style="grid-column: 1 / span 12; margin-bottom: 30px; border-left: 4px solid var(--blue); padding-left: 25px;">
                     <span class="eyebrow">01 / DESIGN</span>
                     <h3>Custom Web Design</h3>
                     <p style="max-width: 850px;">We create clean, professional websites that make a powerful first impression. Every project is designed to be intuitive and visually elite, ensuring your business stands out across every screen size.</p>
                 </div>
 
-                <!-- Service 02 -->
                 <div class="service-card" style="grid-column: 1 / span 12; margin-bottom: 30px; border-left: 4px solid var(--blue); padding-left: 25px;">
                     <span class="eyebrow">02 / PERFORMANCE</span>
                     <h3>Speed & Optimization</h3>
                     <p style="max-width: 850px;">A slow website is a lost opportunity. We engineer our sites to be lightning-fast, ensuring your customers get the information they need without the wait, even on slower rural connections.</p>
                 </div>
 
-                <!-- Service 03 -->
                 <div class="service-card" style="grid-column: 1 / span 12; margin-bottom: 30px; border-left: 4px solid var(--blue); padding-left: 25px;">
                     <span class="eyebrow">03 / SECURITY</span>
                     <h3>Elite Security</h3>
                     <p style="max-width: 850px;">We handle the technical heavy lifting to keep your business safe. From secure connections to clean, modern code, we build digital environments protected from the ground up.</p>
                 </div>
 
-                <!-- Service 04 -->
                 <div class="service-card" style="grid-column: 1 / span 12; border-left: 4px solid var(--blue); padding-left: 25px;">
                     <span class="eyebrow">04 / VISIBILITY</span>
                     <h3>Local Search Authority</h3>
@@ -98,7 +113,6 @@
             </div>
         </section>
 
-        <!-- Final Contact Dashboard -->
         <section class="container section-padding" style="border-top: 1px solid var(--border);">
             <div class="info-card" style="text-align: center; padding: 80px 40px;">
                 <span class="eyebrow">DIRECT ACCESS</span>
